@@ -1,6 +1,7 @@
 package com.kbe.web_shop.service;
 
 import com.kbe.web_shop.dto.ProductDto;
+import com.kbe.web_shop.exception.ProductNotExistsException;
 import com.kbe.web_shop.model.Category;
 import com.kbe.web_shop.model.Product;
 import com.kbe.web_shop.repository.ProductRepo;
@@ -50,7 +51,7 @@ public class ProductService {
     public void updateProduct(ProductDto productDto, Integer productId) throws Exception {
         Optional<Product> optionalProduct = productRepository.findById(productId);
         // throw an exception if product does not exists
-        if (!optionalProduct.isPresent()) {
+        if (optionalProduct.isEmpty()) {
             throw new Exception("product not present");
         }
         Product product = optionalProduct.get();
@@ -59,5 +60,15 @@ public class ProductService {
         product.setName(productDto.getName());
         product.setPrice(productDto.getPrice());
         productRepository.save(product);
+    }
+
+    public Product findById(Integer productId) throws ProductNotExistsException{
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+
+        if(optionalProduct.isEmpty()){
+            throw new ProductNotExistsException("product id is invalid. product id: " + productId);
+        }
+
+        return optionalProduct.get();
     }
 }

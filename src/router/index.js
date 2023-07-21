@@ -9,8 +9,10 @@ import EditCategory from "../views/Category/EditCategory";
 import EditProduct from "../views/Product/EditProduct";
 import ShowDetails from "../views/Product/ShowDetails";
 import ListProducts from "../views/Category/ListProducts";
+import WishList from "../views/Product/WishList";
 import Signup from "../views/Signup";
 import Signin from '../views/Signin';
+import Cart from '../views/Cart';
 
 const routes = [
   {
@@ -78,8 +80,16 @@ const routes = [
     path: '/signin',
     name: 'Signin',
     component: Signin
+  },
+  {
+    path: '/wishlist',
+    name: 'WishList',
+    component: WishList},
+  {
+      path: '/cart',
+      name: 'Cart',
+      component: Cart
   }
-
 ]
 
 const router = createRouter({

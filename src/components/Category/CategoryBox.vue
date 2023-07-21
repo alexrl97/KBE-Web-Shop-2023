@@ -1,6 +1,6 @@
 <template>
     <div class="card w-100 h-100" style="margin-top: 10px">
-      <div class="embed-responsive embed-responsive-16by9">
+      <div class="embed-responsive" style="padding-top: 150%;">
         <img
           class="card-img-top embed-responsive-item"
           :src="category.imageUrl"
@@ -8,7 +8,9 @@
         />
       </div>
       <div class="card-body">
+        <router-link :to="{name: 'ListProducts', params: {id: category.id} }">
         <h5 class="card-title">{{ category.categoryName }}</h5>
+      </router-link>
         <p class="card-text">
           {{ category.description }}
         </p>

@@ -1,6 +1,6 @@
 <template>
-    <div class="card h-100 w-100">
-        <div class="embed-responsive embed-responsive-16by9">
+    <div class="card w-100 h-100" style="margin-top: 10px">
+      <div class="embed-responsive" style="padding-top: 150%;">
             <img
                 class="card-img-top embed-responsive-item"
                 :src="product.imageURL"
@@ -8,11 +8,14 @@
             />
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
+            <router-link :to="{name: 'ShowDetails', params: {id : product.id}}">
+                <h5 class="card-title">{{ product.name }}</h5>
+            </router-link>
             <p class="card-text">
                 {{ product.description.substring(0, 65) }}...
             </p>
-            <router-link :to="{name: 'EditProduct', params: {id: product.id}}">
+            <router-link :to="{name: 'EditProduct', params: {id: product.id}}"
+            v-show="$route.name == 'AdminProduct'">
                 <button class="btn btn-primary">Edit</button>
             </router-link>
         </div>
@@ -27,5 +30,11 @@
 <style scoped>
     .card-img-top {
         object-fit: cover;
+    }
+    a {
+        text-decoration: none;
+    }
+    .card-title {
+        color: #484848;
     }
 </style>

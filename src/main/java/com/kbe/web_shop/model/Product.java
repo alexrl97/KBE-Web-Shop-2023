@@ -24,6 +24,10 @@ public class Product {
     private @NotNull double price;
     private @NotNull String description;
 
+    private @NotNull String deckCardId;
+
+    private @NotNull String rarity;
+
 
     @ManyToOne
     @JsonIgnore
@@ -77,5 +81,21 @@ public class Product {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getDeckCardId() {
+        return deckCardId;
+    }
+
+    public void setDeckCardId(String deck_card_id) {
+        this.deckCardId = deck_card_id;
+    }
+
+    public String getRarity() {
+        return rarity;
+    }
+
+    public void setRarity(String rarity) {
+        this.rarity = rarity;
     }
 }

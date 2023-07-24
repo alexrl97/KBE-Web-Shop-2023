@@ -12,6 +12,10 @@ public class ProductDto {
     private @NotNull String description;
     private @NotNull Integer categoryId;
 
+    private @NotNull String deckCardId;
+
+    private @NotNull String rarity;
+
 
     public ProductDto() {
     }
@@ -62,5 +66,21 @@ public class ProductDto {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getDeckCardId() {
+        return deckCardId;
+    }
+
+    public void setDeckCardId(String deckCardId) {
+        this.deckCardId = deckCardId;
+    }
+
+    public String getRarity() {
+        return rarity;
+    }
+
+    public void setRarity(String rarity) {
+        this.rarity = rarity;
     }
 }

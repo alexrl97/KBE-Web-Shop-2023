@@ -24,6 +24,8 @@ public class ProductService {
         product.setName(productDto.getName());
         product.setCategory(category);
         product.setPrice(productDto.getPrice());
+        product.setDeckCardId(productDto.getDeckCardId());
+        product.setRarity(productDto.getRarity());
         productRepository.save(product);
     }
 
@@ -35,6 +37,8 @@ public class ProductService {
         productDto.setCategoryId(product.getCategory().getId());
         productDto.setPrice(product.getPrice());
         productDto.setId(product.getId());
+        productDto.setDeckCardId(product.getDeckCardId());
+        productDto.setRarity(product.getRarity());
         return productDto;
     }
 
@@ -59,6 +63,8 @@ public class ProductService {
         product.setImageURL(productDto.getImageURL());
         product.setName(productDto.getName());
         product.setPrice(productDto.getPrice());
+        product.setDeckCardId(productDto.getDeckCardId());
+        product.setRarity(productDto.getRarity());
         productRepository.save(product);
     }
 

@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL = jdbc:mysql://mysql:3306/web_shop?useSSL=false&allowPublicKeyRetrieval=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+  mysql:
+    platform: linux/x86_64
+    image: "mysql:8.0.33"
+    restart: always
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: web_shop
+      MYSQL_USER: user
+      MYSQL_PASSWORD: student
+      MYSQL_ROOT_PASSWORD: student

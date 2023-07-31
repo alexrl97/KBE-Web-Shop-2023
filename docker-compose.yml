@@ -1,14 +1,6 @@
 version: "3.8"
 services:
-  app:
-    build: .
-    restart: always
-    ports:
-      - 8080:8080
-    depends_on:
-      - mysql
-    environment:
-      - SPRING_DATASOURCE_URL = jdbc:mysql://mysql:3306/web_shop?useSSL=false&allowPublicKeyRetrieval=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+
   mysql:
     platform: linux/x86_64
     image: "mysql:8.0.33"
@@ -20,3 +12,29 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: student
       MYSQL_ROOT_PASSWORD: student
+
+  rabbitmq-container:
+    image: rabbitmq:3.11-management
+    hostname: rabbitmq-container
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - internal
+
+  app:
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
+      - rabbitmq-container
+    environment:
+      - SPRING_DATASOURCE_URL = jdbc:mysql://mysql:3306/web_shop?useSSL=false&allowPublicKeyRetrieval=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - spring_rabbitmq_host=rabbitmq-container
+      - spring_rabbitmq_port=5672
+
+networks:
+  internal:
+    name: internal

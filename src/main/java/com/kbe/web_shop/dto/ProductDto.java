@@ -1,10 +1,12 @@
 package com.kbe.web_shop.dto;
 
+import com.google.gson.Gson;
+import com.kbe.web_shop.model.Product;
+
 import javax.validation.constraints.NotNull;
 
 public class ProductDto {
-    // for create it can be optional
-    // for update we need the id
+
     private Integer id;
     private @NotNull String name;
     private @NotNull String imageURL;
@@ -18,6 +20,25 @@ public class ProductDto {
 
 
     public ProductDto() {
+    }
+
+    public ProductDto(Product product) {
+        this.setId(product.getId());
+        this.setName(product.getName());
+        this.setImageURL(product.getImageURL());
+        this.setDescription(product.getDescription());
+        this.setPrice(product.getPrice());
+        this.setCategoryId(product.getCategory().getId());
+        this.setDeckCardId(product.getDeckCardId());
+        this.setRarity(product.getRarity());
+    }
+
+    public ProductDto(@NotNull String name, @NotNull String imageURL, @NotNull double price, @NotNull String description, @NotNull Integer categoryId) {
+        this.name = name;
+        this.imageURL = imageURL;
+        this.price = price;
+        this.description = description;
+        this.categoryId = categoryId;
     }
 
     public String getName() {
@@ -82,5 +103,9 @@ public class ProductDto {
 
     public void setRarity(String rarity) {
         this.rarity = rarity;
+    }
+
+    public static ProductDto fromJsonString(String productDtoJsonString) {
+        return new Gson().fromJson(productDtoJsonString, ProductDto.class);
     }
 }

@@ -63,8 +63,8 @@ public class AuthenticationToken {
 
     public AuthenticationToken(User user) {
         this.user = user;
-        this.createdDate = new Date();
         this.token = UUID.randomUUID().toString();
+        this.createdDate = new Date();
     }
 
     public AuthenticationToken() {

@@ -27,7 +27,13 @@ public class CategoryService {
         categoryRepo.save(category);
     }
 
+    public void deleteCategory(int categoryId) {
+        Category category = categoryRepo.getById(categoryId);
+        categoryRepo.delete(category);
+    }
+
     public boolean findById(int categoryId) {
         return categoryRepo.findById(categoryId).isPresent();
     }
+
 }

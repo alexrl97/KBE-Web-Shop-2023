@@ -4,6 +4,7 @@ services:
   mysql:
     platform: linux/x86_64
     image: "mysql:8.0.33"
+    container_name: mysql
     restart: always
     ports:
       - 3307:3306
@@ -16,14 +17,16 @@ services:
   rabbitmq-container:
     image: rabbitmq:3.11-management
     hostname: rabbitmq-container
+    container_name: rabbitmq-container
     ports:
       - "15672:15672"
       - "5672:5672"
-    networks:
-      - internal
 
   app:
-    build: .
+    container_name: web_shop_backend
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: always
     ports:
       - 8080:8080
@@ -31,10 +34,6 @@ services:
       - mysql
       - rabbitmq-container
     environment:
-      - SPRING_DATASOURCE_URL = jdbc:mysql://mysql:3306/web_shop?useSSL=false&allowPublicKeyRetrieval=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/web_shop?useSSL=false&allowPublicKeyRetrieval=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       - spring_rabbitmq_host=rabbitmq-container
       - spring_rabbitmq_port=5672
-
-networks:
-  internal:
-    name: internal

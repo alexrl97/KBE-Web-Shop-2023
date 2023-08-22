@@ -1,5 +1,6 @@
 package com.kbe.web_shop.service;
 
+import com.kbe.web_shop.config.constants.Role;
 import com.kbe.web_shop.exception.AuthenticationFailException;
 import com.kbe.web_shop.model.AuthenticationToken;
 import com.kbe.web_shop.model.User;
@@ -41,5 +42,9 @@ public class AuthenticationService {
         if(Objects.isNull(getUser(token))) {
             throw new AuthenticationFailException("token not valid");
         }
+    }
+
+    public boolean hasEditPermission(String token){
+        return getUser(token).getRole().equals(Role.storehouse);
     }
 }

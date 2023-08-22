@@ -68,6 +68,17 @@ public class ProductService {
         productRepository.save(product);
     }
 
+    public void deleteProduct(Integer productId) throws Exception {
+
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        // throw an exception if product does not exists
+        if (optionalProduct.isEmpty()) {
+            throw new Exception("product not present");
+        }
+        Product product = optionalProduct.get();
+        productRepository.delete(product);
+    }
+
     public Product findById(Integer productId) throws ProductNotExistsException{
         Optional<Product> optionalProduct = productRepository.findById(productId);
 
@@ -77,4 +88,5 @@ public class ProductService {
 
         return optionalProduct.get();
     }
+
 }

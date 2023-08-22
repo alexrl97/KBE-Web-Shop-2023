@@ -3,20 +3,19 @@ package com.kbe.web_shop.controller;
 import com.kbe.web_shop.common.ApiResponse;
 import com.kbe.web_shop.dto.cart.AddToCartDto;
 import com.kbe.web_shop.dto.cart.CartDto;
+import com.kbe.web_shop.exception.AuthenticationFailException;
+import com.kbe.web_shop.exception.ProductNotExistsException;
+import com.kbe.web_shop.model.Product;
 import com.kbe.web_shop.model.User;
 import com.kbe.web_shop.service.AuthenticationService;
 import com.kbe.web_shop.service.CartService;
+import com.kbe.web_shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/cart")
@@ -24,6 +23,10 @@ public class CartController {
 
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    private ProductService productService;
+
 
     @Autowired
     private AuthenticationService authenticationService;
@@ -63,7 +66,15 @@ public class CartController {
         return new ResponseEntity<>(cartDto, HttpStatus.OK);
     }
 
-    // delete a cart item for a user
+    @PutMapping("/update/{cartItemId}")
+    public ResponseEntity<ApiResponse> updateCartItem(@RequestBody @Valid AddToCartDto cartDto,
+                                                      @RequestParam("token") String token) throws AuthenticationFailException, ProductNotExistsException {
+        authenticationService.authenticate(token);
+        User user = authenticationService.getUser(token);
+        Product product = productService.findById(cartDto.getProductId());
+        cartService.updateCartItem(cartDto, user,product);
+        return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Product has been updated"), HttpStatus.OK);
+    }
 
     @DeleteMapping("/delete/{cartItemId}")
     public ResponseEntity<ApiResponse> deleteCartItem(@PathVariable("cartItemId") Integer itemId,
@@ -78,7 +89,6 @@ public class CartController {
         cartService.deleteCartItem(itemId, user);
 
         return new ResponseEntity<>(new ApiResponse(true, "Item has been removed"), HttpStatus.OK);
-
     }
 
 }

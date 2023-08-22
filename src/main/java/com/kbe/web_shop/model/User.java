@@ -1,11 +1,9 @@
 package com.kbe.web_shop.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.kbe.web_shop.config.constants.Role;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
@@ -24,8 +22,14 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role")
+    private Role role;
+
+
     @Column(name = "password")
     private String password;
+
 
     public Integer getId() {
         return id;
@@ -59,19 +63,29 @@ public class User {
         this.email = email;
     }
 
-    public String getPasswoprd() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPasswoprd(String passwoprd) {
+    public void setPassword(String passwoprd) {
         this.password = passwoprd;
     }
 
-    public User(String firstName, String lastName, String email, String password) {
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+
+    public User(String firstName, String lastName, String email, String password, Role role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     public User() {

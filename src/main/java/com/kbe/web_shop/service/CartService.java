@@ -23,7 +23,7 @@ public class CartService {
     ProductService productService;
 
     @Autowired
-    CartRepo cartRepo;
+    CartRepo cartRepository;
 
     public void addToCart(AddToCartDto addToCartDto, User user) {
 
@@ -36,13 +36,12 @@ public class CartService {
         cart.setQuantity(addToCartDto.getQuantity());
         cart.setCreatedDate(new Date());
 
-
         // save the cart
-        cartRepo.save(cart);
+        cartRepository.save(cart);
     }
 
     public CartDto listCartItems(User user) {
-        List<Cart> cartList = cartRepo.findAllByUserOrderByCreatedDateDesc(user);
+        List<Cart> cartList = cartRepository.findAllByUserOrderByCreatedDateDesc(user);
 
         List<CartItemDto> cartItems = new ArrayList<>();
         double totalCost = 0;
@@ -58,10 +57,18 @@ public class CartService {
         return  cartDto;
     }
 
+
+    public void updateCartItem(AddToCartDto cartDto, User user,Product product){
+        Cart cart = cartRepository.getOne(cartDto.getId());
+        cart.setQuantity(cartDto.getQuantity());
+        cart.setCreatedDate(new Date());
+        cartRepository.save(cart);
+    }
+
     public void deleteCartItem(Integer cartItemId, User user) {
         // the item id belongs to user
 
-        Optional<Cart> optionalCart = cartRepo.findById(cartItemId);
+        Optional<Cart> optionalCart = cartRepository.findById(cartItemId);
 
         if (optionalCart.isEmpty()) {
             throw new CustomException("cart item id is invalid: " + cartItemId);
@@ -73,6 +80,12 @@ public class CartService {
             throw  new CustomException("cart item does not belong to user: " +cartItemId);
         }
 
-        cartRepo.delete(cart);
+        cartRepository.delete(cart);
+    }
+
+    public void deleteUserCartItems(User user) {
+
+        List<Cart> userCartItems = cartRepository.findAllByUserOrderByCreatedDateDesc(user);
+        cartRepository.deleteAll(userCartItems);
     }
 }

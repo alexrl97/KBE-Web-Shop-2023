@@ -43,8 +43,9 @@
           .then((res) => {
           this.$router.replace("/");
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("role", res.data.role);
             swal({
-              text: "Login successful",
+              text: "Anmelden erfolgreich",
               icon: "success",
             });
             this.$emit("fetchData");

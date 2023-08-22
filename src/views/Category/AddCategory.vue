@@ -54,7 +54,7 @@ export default {
 
       axios({
         method: "post",
-        url: `${baseURL}/category/create`,
+        url: `${baseURL}/category/create?token=${this.token}`,
         data: JSON.stringify(newCategory),
         headers: {
           "Content-Type": "application/json",
@@ -70,6 +70,10 @@ export default {
           console.log(err);
         });
     },
+  },
+
+  mounted() {
+    this.token = localStorage.getItem("token");
   },
 };
 </script>

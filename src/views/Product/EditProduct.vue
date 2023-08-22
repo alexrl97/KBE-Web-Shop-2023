@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center">
-                <h4 class="pt-3"> Edit Product</h4>
+            <div class="col-12 text-center" style="margin-top: 10px;">
+                <h4 class="pt-3"> Karte bearbeiten</h4>
             </div>
         </div>
         <div class="row">
@@ -10,7 +10,7 @@
             <div class="col-6">
                 <form v-if="product">
                     <div class="form-group">
-                        <label> Category</label>
+                        <label> Kartentyp</label>
                         <select class="form-control" v-model="product.categoryId" required>
                             <option v-for="category of categories"
                                     :key="category.id"
@@ -23,19 +23,21 @@
                         <input type="text" class="form-control" v-model="product.name" required/>
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
+                        <label>Beschreibung</label>
                         <input type="text" class="form-control" v-model="product.description" required/>
                     </div>
                     <div class="form-group">
-                        <label>Image URL</label>
+                        <label>Bild URL</label>
                         <input type="text" class="form-control" v-model="product.imageURL" required/>
                     </div>
                     <div class="form-group">
-                        <label>Price</label>
+                        <label>Preis</label>
                         <input type="number" class="form-control" v-model="product.price" required/>
                     </div>
-                    <button type="button" class="btn btn-primary"
-                            @click="editProduct" >Submit</button>
+                  <div class="d-flex justify-content-between"> <!-- Use the d-flex class to create a flex container and justify-content-between to align items at the ends -->
+                    <button type="button" class="btn btn-primary" @click="editProduct">Speichern</button>
+                    <button type="button" class="btn btn-primary" style="background-color: red" @click="deleteProduct">Löschen</button>
+                  </div>
                 </form>
             </div>
             <div class="col-3"></div>
@@ -56,7 +58,7 @@
         methods: {
             async editProduct() {
                 console.log('product', this.product)
-                await axios.post(`${this.baseURL}product/update/${this.id}`,
+                await axios.post(`${this.baseURL}product/update/${this.id}?token=${this.token}`,
                     this.product)
                     .then(() => {
                         this.$emit("fetchData");
@@ -66,11 +68,25 @@
                             icon: "success"
                         })
                     }).catch(err => console.log('err', err));
-            }
+            },
+          async deleteProduct() {
+            console.log('product', this.product)
+            await axios.delete(`${this.baseURL}product/delete/${this.id}?token=${this.token}`,
+                this.product)
+                .then(() => {
+                  this.$emit("fetchData");
+                  this.$router.push({name: 'AdminProduct'})
+                  swal({
+                    text: "product has been deleted successfully",
+                    icon: "success"
+                  })
+                }).catch(err => console.log('err', err));
+          }
         },
         mounted() {
             this.id = this.$route.params.id;
             this.product = this.products.find(product => product.id == this.id)
+            this.token = localStorage.getItem("token");
         }
     }
 </script>

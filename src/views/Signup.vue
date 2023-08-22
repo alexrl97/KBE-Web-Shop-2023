@@ -11,7 +11,8 @@
       <div class="row">
         <div class="col-12 justify-content-center d-flex pt-3">
           <div id="signup" class="flex-item border">
-            <h2 class="pt-4 pl-4">Create Account</h2>
+            <h2 v-if="role === 'storehouse'" class="pt-4 pl-4">Mitarbeiterregistrierung</h2>
+            <h2 v-else class="pt-4 pl-4">Kundenregistrierung</h2>
             <form @submit="signup" class="pt-4 pl-4 pr-4">
               <div class="form-group">
                 <label for="Email">Email</label>
@@ -25,7 +26,7 @@
               <div class="form-row">
                 <div class="col">
                   <div class="form-group">
-                    <label> First Name</label>
+                    <label> Vorname</label>
                     <input
                       type="text"
                       v-model="firstName"
@@ -36,7 +37,7 @@
                 </div>
                 <div class="col">
                   <div class="form-group">
-                    <label> Last Name</label>
+                    <label> Nachname</label>
                     <input
                       type="text"
                       v-model="lastName"
@@ -46,6 +47,77 @@
                   </div>
                 </div>
               </div>
+
+              <div v-if="role !== 'storehouse'">
+              <div class="form-group">
+                <label for="Company">Firma</label>
+                <input
+                    type="text"
+                    v-model="company"
+                    class="form-control"
+                />
+              </div>
+
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <label> Straße</label>
+                    <input
+                        type="text"
+                        v-model="street"
+                        class="form-control"
+                        required
+                    />
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label> Hausnummer</label>
+                    <input
+                        type="text"
+                        v-model="houseNumber"
+                        class="form-control"
+                        required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <label> PLZ</label>
+                    <input
+                        type="text"
+                        v-model="zip"
+                        class="form-control"
+                        required
+                    />
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label> Stadt</label>
+                    <input
+                        type="text"
+                        v-model="city"
+                        class="form-control"
+                        required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label> Land</label>
+                <input
+                    type="text"
+                    v-model="country"
+                    class="form-control"
+                    required
+                />
+              </div>
+
+          </div>
   
               <!-- password -->
               <div class="form-group">
@@ -60,7 +132,7 @@
   
               <!-- confirm password -->
               <div class="form-group">
-                <label for="Password"> Confirm password</label>
+                <label for="Password"> Password bestätigen</label>
                 <input
                   type="password"
                   v-model="confirmPassword"
@@ -69,7 +141,7 @@
                 />
               </div>
   
-              <button class="btn btn-primary mt-2">Create Account</button>
+              <button class="btn btn-primary mt-2">Erstellen</button>
             </form>
           </div>
         </div>
@@ -88,6 +160,13 @@
         email: null,
         firstName: null,
         lastName: null,
+        company:null,
+        role:null,
+        street: null,
+        houseNumber: null,
+        city: null,
+        zip: null,
+        country: null,
         password: null,
         confirmPassword: null,
       };
@@ -96,12 +175,22 @@
       async signup(e) {
         e.preventDefault();
         if (this.password === this.confirmPassword) {
-          // call signup api
+
+          if(this.role === '')
+            this.role = 'customer';
+
           const user = {
             email: this.email,
             firstName: this.firstName,
             lastName: this.lastName,
+            company: this.company,
+            role: this.role,
             password: this.password,
+            street: this.street,
+            houseNumber: this.houseNumber,
+            city: this.city,
+            zip: this.zip,
+            country: this.country,
           };
           console.log("user", user);
           await axios
@@ -109,19 +198,21 @@
             .then(() => {
               this.$router.replace("/");
               swal({
-                text: "User signup successful, please login",
+                text: "Registrierung erfolgreich, bitte einloggen",
                 icon: "success",
               });
             })
             .catch((err) => console.log("err", err));
         } else {
-          // show some error
           swal({
-            text: "passwords dont match",
+            text: "Passwörter stimmen nicht überein",
             icon: "error",
           });
         }
       },
+    },
+    mounted() {
+      this.role = localStorage.getItem("role");
     },
   };
   </script>

@@ -66,7 +66,7 @@
                     price: this.price
                 };
 
-                axios.post(this.baseURL+"product/add", newProduct)
+                axios.post(this.baseURL+"product/add?token="+this.token, newProduct)
                 .then(() => {
                     this.$router.push({name: 'AdminProduct'});
                     swal({
@@ -79,6 +79,9 @@
 
 
             }
-        }
+        },
+      mounted() {
+        this.token = localStorage.getItem("token");
+      },
     }
 </script>

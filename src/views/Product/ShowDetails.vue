@@ -10,14 +10,14 @@
       <div class="col-md-6 col-12 pt-3 pt-md-0">
         <h4>{{ product.name }}</h4>
         <h6 class="catgory font-italic">{{ category.categoryName }}</h6>
-        <h6 class="font-weight-bold">$ {{ product.price }}</h6>
+        <h6 class="font-weight-bold">{{ product.price }} €</h6>
         <p>
           {{ product.description }}
         </p>
         <div class="d-flex flex-row justify-content-between">
           <div class="input-group col-md-3 col-4 p-0">
             <div class="input-group-prepend">
-              <span class="input-group-text">Quantity</span>
+              <span class="input-group-text">Anzahl</span>
             </div>
             <input type="number" class="form-control" v-model="quantity" />
           </div>
@@ -29,17 +29,18 @@
               id="add-to-cart-button"
               @click="addToCart"
             >
-              Add to Cart
+              {{ cardString }}
+            </button>
+            <button
+                id="wishlist-button"
+                class="btn"
+                @click="addToWishlist()"
+            >
+              {{ wishListString }}
             </button>
           </div>
         </div>
-        <button
-          id="wishlist-button"
-          class="btn mr-3 p-1 py-0"
-          @click="addToWishlist()"
-        >
-          {{ wishListString }}
-        </button>
+
       </div>
     </div>
   </div>
@@ -53,7 +54,8 @@ export default {
       product: {},
       category: {},
       quantity: 1,
-      wishListString: "Add to wishlist",
+      wishListString: "Wunschliste hinzufügen",
+      cardString: "Warenkorb hinzufügen"
     };
   },
   props: ["baseURL", "products", "categories"],
@@ -63,7 +65,7 @@ export default {
         // user is not logged in
         // show some error
         swal({
-          text: "please login to add item in wishlist",
+          text: "Bitte einloggen um Karten der Wunschliste hinzuzufügen",
           icon: "error",
         });
         return;
@@ -75,9 +77,9 @@ export default {
         })
         .then((res) => {
           if (res.status === 201) {
-            this.wishListString = "Added to Wishlist";
+            this.wishListString = "Zur Wunschliste hinzugefügt";
             swal({
-              text: "Added to Wishlist",
+              text: "Zur Wunschliste hinzugefügt",
               icon: "success",
             });
           }
@@ -91,7 +93,7 @@ export default {
         // user is not logged in
         // show some error
         swal({
-          text: "please login to add item in cart",
+          text: "Bitte einloggen um Karten dem Warenkorb hinzuzufügen",
           icon: "error",
         });
         return;
@@ -105,7 +107,7 @@ export default {
         .then((res) => {
           if (res.status == 201) {
             swal({
-              text: "Product added in cart",
+              text: "Karte dem Warenkorb hinzugefügt",
               icon: "success",
             });
             this.$emit("fetchData");
@@ -129,7 +131,8 @@ export default {
         font-weight: 400;
     }
     #wishlist-button {
-        background-color: #b9b9b9;
+        margin-top: 10px;
+        background-color: #bbff9e;
     }
     #add-to-cart-button {
         background-color: #febd69;

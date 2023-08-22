@@ -9,7 +9,7 @@
 
         <div class="row mb-5">
             <div v-for="product in product" :key="product.id"
-                 class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
+                 class="col-lg-2 col-md-3 col-sm-4 col-6 pt-3 justify-content-around d-flex">
                 <ProductBox :product="product" />
             </div>
  </div>
@@ -34,11 +34,11 @@
             this.product = this.products.filter(product => product.categoryId == this.id)
 
             if (this.product.length == 0) {
-                this.msg = "no products found"
+                this.msg = "Keine Produkte gefunden"
             } else if (this.product.length == 1) {
-                this.msg = "Only 1 product found"
+                this.msg = "1 Produkt gefunden"
             } else {
-                this.msg = this.product.length + " products found"
+                this.msg = this.product.length + " Produkte gefunden"
             }
 
         }

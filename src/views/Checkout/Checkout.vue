@@ -1,12 +1,12 @@
 <template>
     <div class="div_class">
-      <h3>You will be redirected to payment page</h3>
+      <h3>Du wirst zum Stripe Bezahlsystem weitergeleitet</h3>
       <div class="alert alert-primary">
-        While making payment use card number 4242 4242 4242 4242 and enter random
-        date and cvv (3 digit)
+        Das Bezahlsystem befindet sich im Testmodus. Verwende 4242 4242 4242 4242 als Kreditkartennummer
+        und beliebige Angaben für eine erfolgreiche Zahlung.
       </div>
   
-      <button class="btn btn-primary" @click="goToCheckout">Make Payment</button>
+      <button class="btn btn-primary" @click="goToCheckout">Bezahlen</button>
     </div>
   </template>
   
@@ -24,6 +24,21 @@
     name: 'Checkout',
     props: ['baseURL'],
     methods: {
+      includeStripe( URL, callback ){
+        let documentTag = document, tag = 'script',
+            object = documentTag.createElement(tag),
+            scriptTag = documentTag.getElementsByTagName(tag)[0];
+        object.src = '//' + URL;
+        if (callback) { object.addEventListener('load', function (e) { callback(null, e); }, false); }
+        scriptTag.parentNode.insertBefore(object, scriptTag);
+      },
+
+      configureStripe(){
+        /* global Stripe */
+        this.stripe = Stripe( this.stripeAPIToken );
+      },
+
+
       getAllItems() {
         axios
           .get(`${this.baseURL}cart/?token=${this.token}`)
@@ -61,7 +76,10 @@
     },
     mounted() {
       this.token = localStorage.getItem('token');
-      this.stripe = window.Stripe(this.stripeAPIToken);
+
+      this.includeStripe('js.stripe.com/v3/', function(){
+        this.configureStripe();
+      }.bind(this) );
       this.getAllItems();
     },
   };

@@ -1,8 +1,8 @@
 <template>
     <div class="container">
       <div class="row">
-        <div class="col-12 text-center">
-          <h4 class="pt-3">Your WishList</h4>
+        <div class="col-12 text-center" style="margin-top: 10px">
+          <h4 class="pt-3">Deine Wunschliste</h4>
         </div>
       </div>
   
@@ -12,8 +12,7 @@
         <div
           v-for="product of products"
           :key="product.id"
-          class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex"
-        >
+          class="col-lg-2 col-md-3 col-sm-4 col-6 pt-3 justify-content-around d-flex">
           <ProductBox :product="product"> </ProductBox>
         </div>
       </div>

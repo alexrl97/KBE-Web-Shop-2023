@@ -1,9 +1,13 @@
 <template>
-    <div class="text-center">
-      <h1>Failed</h1>
-    </div>
-  </template>
-  
-  <script>
-  export default {};
-  </script>
+  <div class="alert alert-danger" role="alert">
+    Payment failed
+  </div>
+</template>
+
+<script>
+export default {
+  name:'FailedPayment',
+  mounted(){
+  }
+}
+</script>

@@ -1,9 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/HomeView.vue'
-import AddCategory from '../views/Category/AddCategory'
-import Category from '../views/Category/Category'
-import Product from '../views/Product/Product'
-import Admin from '../views/Admin';
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '../views/HomeView.vue';
+import AddCategory from '../views/Category/AddCategory';
+import Category from '../views/Category/Category';
+import Product from '../views/Product/Product';
 import AddProduct from '../views/Product/AddProduct';
 import EditCategory from '../views/Category/EditCategory';
 import EditProduct from '../views/Product/EditProduct';
@@ -12,10 +11,12 @@ import ListProducts from '../views/Category/ListProducts';
 import WishList from '../views/Product/WishList';
 import Signup from '../views/Signup';
 import Signin from '../views/Signin';
-import Cart from '../views/Cart';
+import Cart from '../views/cart/Cart';
 import Success from '../views/payment/Success';
 import Failed from '../views/payment/Failed';
 import Checkout from '../views/Checkout/Checkout';
+import OrderHistory from "../views/order/OrderHistory";
+import OrderDetails from "../views/order/OrderDetails";
 
 const routes = [
   {
@@ -29,40 +30,36 @@ const routes = [
     component: ListProducts,
   },
   {
-    path: '/admin/category/add',
+    path: '/category/add',
     name: 'AddCategory',
     component: AddCategory,
   },
+
   {
-    path: '/admin/category',
-    name: 'Category',
+    path: "/category",
+    name: "AdminCategory",
     component: Category,
   },
+
   // category edit
   {
-  path: '/admin/category/:id',
+  path: '/category/:id',
   name: 'EditCategory',
   component: EditCategory,
   },
-    // admin home page
   {
-    path: '/admin',
-    name: 'Admin',
-    component: Admin,
-  },
-  {
-    path: '/admin/product',
+    path: '/product',
     name: 'AdminProduct',
     component: Product,
   },
     // add product
   {
-    path: '/admin/product/new',
+    path: '/product/new',
     name: 'AddProduct',
     component: AddProduct,
   },
   {
-    path: '/admin/product/:id',
+    path: '/product/:id',
     name: 'EditProduct',
     component: EditProduct,
   },
@@ -109,6 +106,17 @@ const routes = [
     name: 'Checkout',
     component: Checkout,
   },
+  {
+    path: '/orders',
+    name: 'OrderHistory',
+    component: OrderHistory
+  },
+  {
+    path:'/order/:id',
+    name:'OrderDetails',
+    component: OrderDetails
+  }
+
 ]
 
 const router = createRouter({

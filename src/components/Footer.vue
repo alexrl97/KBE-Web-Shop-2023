@@ -5,11 +5,11 @@
                 <div class="col-md-3 col-6">
                     <ul style="list-style-type: none">
                         <li class="text-light font-weight-bold pb-2">
-                            Get to know us
+                            Lern uns kennen
                         </li>
                         <li>
                             <a class="footer-link font-weight-light" href="#">
-                                About us
+                                Über uns
                             </a>
                         </li>
                         <li>

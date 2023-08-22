@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-12 text-center">
           <h3 class="pt-3">
-            Shopping cart
+            Warenkorb
           </h3>
         </div>
       </div>
@@ -37,21 +37,21 @@
             </h6>
   
             <p class="mb-0 font-weight-bold" id="item-price">
-              $ {{ cartItem.product.price }} per unit
+              {{ cartItem.product.price }}€ pro Karte
             </p>
             <p class="mb-0" style="float:left">
-            Quantity:{{ cartItem.quantity }}
+            Anzahl:{{ cartItem.quantity }}
           </p>
           </div>
           <p class="mb-0" style="float:right">
-            Total:
+            Preis:
             <span class="font-weight-bold">
-              $ {{ cartItem.product.price * cartItem.quantity }}
+             {{ cartItem.product.price * cartItem.quantity }}€
             </span>
           </p>
           <br />
-        <a href="#" class="text-right" @click="deleteItem(cartItem.id)"
-          >Remove from cart
+        <a href="#" class="text-right"  @click="deleteItem(cartItem.id) "
+          >&emsp;Aus dem Warenkorb entfernen
         </a>
         </div>
         <div class="col-2"></div>
@@ -60,9 +60,9 @@
   
       <!-- display the price -->
       <div class="total-cost pt-2 text-right">
-        <h5>Total : ${{ totalCost.toFixed(2) }}</h5>
+        <h5>Gesamtpreis: {{ totalCost.toFixed(2) }}€</h5>
         <button type="button" class="btn btn-primary confirm" @click="checkout">
-        Confirm order
+        Bezahlen
       </button>
       </div>
     </div>

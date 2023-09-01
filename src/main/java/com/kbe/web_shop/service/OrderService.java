@@ -1,13 +1,14 @@
 package com.kbe.web_shop.service;
 
 import com.kbe.web_shop.config.constants.OrderStatus;
-import com.kbe.web_shop.dto.cart.CartDto;
+import com.kbe.web_shop.dto.cart.CartListDto;
 import com.kbe.web_shop.dto.cart.CartItemDto;
 import com.kbe.web_shop.dto.checkout.CheckoutItemDto;
 import com.kbe.web_shop.exception.OrderNotFoundException;
 import com.kbe.web_shop.model.Order;
 import com.kbe.web_shop.model.OrderItem;
 import com.kbe.web_shop.model.User;
+import com.kbe.web_shop.producer.CartProducer;
 import com.kbe.web_shop.repository.OrderItemsRepo;
 import com.kbe.web_shop.repository.OrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,9 @@ public class OrderService {
 
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    CartProducer cartProducer;
 
     @Autowired
     private AddressService addressService;
@@ -91,18 +95,18 @@ public class OrderService {
                 ).build();
     }
 
-    public void placeOrder(User user, String sessionId) {
+    public void createOrder(User user, String sessionId) {
         // first let get cart items for the user
-        CartDto cartDto = cartService.listCartItems(user);
+        CartListDto cartListDto = cartService.listCartItems(user);
 
-        List<CartItemDto> cartItemDtoList = cartDto.getCartItems();
+        List<CartItemDto> cartItemDtoList = cartListDto.getCartItems();
 
         // create the order and save it
         Order newOrder = new Order();
         newOrder.setCreatedDate(new Date());
         newOrder.setSessionId(sessionId);
         newOrder.setUser(user);
-        newOrder.setTotalPrice(cartDto.getTotalCost());
+        newOrder.setTotalPrice(cartListDto.getTotalCost());
         newOrder.setStatus(OrderStatus.pending.toString());
         newOrder.setAddress(addressService.getLatestAdressForUser(user));
         orderRepository.save(newOrder);
@@ -119,7 +123,9 @@ public class OrderService {
             orderItemsRepository.save(orderItem);
         }
 
-        cartService.deleteUserCartItems(user);
+        //cartService.deleteUserCartItems(user);
+        cartProducer.sendDeleteAllCartItemsMessage(user);
+
     }
 
     public void sendOrder(Integer orderId, String trackingNumber) {

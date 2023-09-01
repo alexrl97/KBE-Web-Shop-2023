@@ -1,27 +1,54 @@
 package com.kbe.web_shop.dto.cart;
 
-import java.util.List;
+import com.google.gson.Gson;
+import com.kbe.web_shop.model.User;
+
+import javax.validation.constraints.NotNull;
 
 public class CartDto {
-    private List<CartItemDto> cartItems;
-    private double totalCost;
+
+    private Integer id;
+    private @NotNull Integer productId;
+    private @NotNull Integer quantity;
+
+    private @NotNull User user;
 
     public CartDto() {
     }
 
-    public List<CartItemDto> getCartItems() {
-        return cartItems;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCartItems(List<CartItemDto> cartItems) {
-        this.cartItems = cartItems;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public double getTotalCost() {
-        return totalCost;
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setTotalCost(double totalCost) {
-        this.totalCost = totalCost;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public static CartDto fromJsonString(String addToCartDtoJsonString) {
+        return new Gson().fromJson(addToCartDtoJsonString, CartDto.class);
     }
 }

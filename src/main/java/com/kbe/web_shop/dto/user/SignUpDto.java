@@ -1,6 +1,8 @@
 package com.kbe.web_shop.dto.user;
 
+import com.google.gson.Gson;
 import com.kbe.web_shop.config.constants.Role;
+import com.kbe.web_shop.model.Category;
 
 import javax.persistence.Column;
 
@@ -23,6 +25,7 @@ public class SignUpDto {
     private String zip;
 
     private String country;
+
 
     public String getFirstName() {
         return firstName;
@@ -110,5 +113,9 @@ public class SignUpDto {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public static SignUpDto fromJsonString(String signUpDtoJsonString) {
+        return new Gson().fromJson(signUpDtoJsonString, SignUpDto.class);
     }
 }

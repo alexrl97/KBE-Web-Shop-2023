@@ -1,13 +1,12 @@
 package com.kbe.web_shop.service;
 
-import com.kbe.web_shop.config.constants.MessageStrings;
 import com.kbe.web_shop.config.constants.ResponseStatus;
-import com.kbe.web_shop.dto.user.StorehouseUserCreateDto;
 import com.kbe.web_shop.model.Address;
-import com.kbe.web_shop.repository.AddressRepo;
+import com.kbe.web_shop.producer.AddressProducer;
+import com.kbe.web_shop.producer.AuthenticationProducer;
 import com.kbe.web_shop.utils.Helper;
 import com.kbe.web_shop.config.constants.Role;
-import com.kbe.web_shop.dto.ResponseDto;
+import com.kbe.web_shop.dto.response.ResponseDto;
 import com.kbe.web_shop.dto.user.SignInDto;
 import com.kbe.web_shop.dto.user.SignInResponseDto;
 import com.kbe.web_shop.dto.user.SignUpDto;
@@ -40,6 +39,12 @@ public class UserService {
     @Autowired
     AddressService addressService;
 
+    @Autowired
+    AddressProducer addressProducer;
+
+    @Autowired
+    AuthenticationProducer authenticationProducer;
+
 
     @Transactional
     public ResponseDto signUp(SignUpDto signupDto) {
@@ -55,8 +60,6 @@ public class UserService {
         }
 
         User user = new User(signupDto.getFirstName(), signupDto.getLastName(), signupDto.getEmail(), encryptedPassword, signupDto.getRole());
-        addressService.createSignUpAdress(signupDto, user);
-
 
         User createdUser;
         try {
@@ -65,7 +68,10 @@ public class UserService {
             // generate token for user
             final AuthenticationToken authenticationToken = new AuthenticationToken(createdUser);
             // save token in database
-            authenticationService.saveConfirmationToken(authenticationToken);
+            //authenticationService.saveConfirmationToken(authenticationToken);
+            authenticationProducer.sendCreateAuthenticationTokenMessage(authenticationToken);
+            addressProducer.sendCreateUpdateAddressMessage(addressService.getAddressFromSignUpDto(signupDto, user));
+
             // success in creating
             return new ResponseDto(ResponseStatus.success.toString(), USER_CREATED);
         } catch (Exception e) {
@@ -119,40 +125,4 @@ public class UserService {
 
         // return response
     }
-/*
-    public ResponseDto createStorehouseUser(String token, StorehouseUserCreateDto userCreateDto) throws CustomException, AuthenticationFailException {
-        User creatingUser = authenticationService.getUser(token);
-        if (!canCrudUser(creatingUser.getRole())) {
-            // user can't create new user
-            throw  new AuthenticationFailException(MessageStrings.USER_NOT_PERMITTED);
-        }
-        String encryptedPassword = userCreateDto.getPassword();
-        try {
-            encryptedPassword = hashPassword(userCreateDto.getPassword());
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-
-        User user = new User(userCreateDto.getFirstName(), userCreateDto.getLastName(), userCreateDto.getEmail(), encryptedPassword, Role.storehouse);
-        User createdUser;
-        try {
-            createdUser = userRepository.save(user);
-            final AuthenticationToken authenticationToken = new AuthenticationToken(createdUser);
-            authenticationService.saveConfirmationToken(authenticationToken);
-            return new ResponseDto(ResponseStatus.success.toString(), USER_CREATED);
-        } catch (Exception e) {
-            // handle user creation fail error
-            throw new CustomException(e.getMessage());
-        }
-    }
-
- */
-
-    boolean canCrudUser(Role role) {
-        if (role == Role.storehouse) {
-            return true;
-        }
-        return false;
-    }
-
 }

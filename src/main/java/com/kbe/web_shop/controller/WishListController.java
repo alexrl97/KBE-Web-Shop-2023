@@ -1,10 +1,12 @@
 package com.kbe.web_shop.controller;
 
 import com.kbe.web_shop.common.ApiResponse;
-import com.kbe.web_shop.dto.ProductDto;
+import com.kbe.web_shop.dto.product.ProductDto;
+import com.kbe.web_shop.dto.wishList.WishListDeleteDto;
 import com.kbe.web_shop.model.Product;
 import com.kbe.web_shop.model.User;
 import com.kbe.web_shop.model.WishList;
+import com.kbe.web_shop.producer.WishListProducer;
 import com.kbe.web_shop.service.AuthenticationService;
 import com.kbe.web_shop.service.WishListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class WishListController {
     @Autowired
     AuthenticationService authenticationService;
 
+    @Autowired
+    WishListProducer wishListProducer;
+
 
     // save product as wishlist item
     @PostMapping("/add")
@@ -42,7 +47,9 @@ public class WishListController {
 
         WishList wishList = new WishList(user, product);
 
-        wishListService.createWishlist(wishList);
+        //wishListService.createWishlist(wishList);
+        wishListProducer.sendCreateMessage(wishList);
+
 
         ApiResponse apiResponse = new ApiResponse(true, "Added to wishlist");
         return  new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
@@ -59,7 +66,8 @@ public class WishListController {
         // find the user
         User user = authenticationService.getUser(token);
 
-        wishListService.deleteWishListItem(itemId, user);
+        //wishListService.deleteWishListItem(itemId, user);
+        wishListProducer.sendDeleteMessage(new WishListDeleteDto(itemId, user));
 
         return new ResponseEntity<>(new ApiResponse(true, "Item has been removed"), HttpStatus.OK);
     }

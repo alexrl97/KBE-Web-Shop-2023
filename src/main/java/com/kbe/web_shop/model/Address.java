@@ -1,6 +1,7 @@
 package com.kbe.web_shop.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.Gson;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -135,5 +136,9 @@ public class Address {
 
     public Address() {
         this.createdDate = new Date();
+    }
+
+    public static Address fromJsonString(String addressJsonString) {
+        return new Gson().fromJson(addressJsonString, Address.class);
     }
 }

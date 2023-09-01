@@ -1,5 +1,7 @@
 package com.kbe.web_shop.model;
 
+import com.google.gson.Gson;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -68,5 +70,9 @@ public class AuthenticationToken {
     }
 
     public AuthenticationToken() {
+    }
+
+    public static AuthenticationToken fromJsonString(String authenticationTokenJsonString) {
+        return new Gson().fromJson(authenticationTokenJsonString, AuthenticationToken.class);
     }
 }

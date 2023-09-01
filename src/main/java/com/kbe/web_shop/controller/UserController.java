@@ -1,11 +1,12 @@
 package com.kbe.web_shop.controller;
 
-import com.kbe.web_shop.dto.ResponseDto;
+import com.kbe.web_shop.dto.response.ResponseDto;
 import com.kbe.web_shop.dto.user.SignInDto;
 import com.kbe.web_shop.dto.user.SignInResponseDto;
 import com.kbe.web_shop.dto.user.SignUpDto;
 import com.kbe.web_shop.exception.AuthenticationFailException;
 import com.kbe.web_shop.model.User;
+import com.kbe.web_shop.producer.UserProducer;
 import com.kbe.web_shop.repository.UserRepo;
 import com.kbe.web_shop.service.AuthenticationService;
 import com.kbe.web_shop.service.UserService;
@@ -28,6 +29,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    UserProducer userProducer;
+
     @GetMapping("/all")
     public List<User> findAllUser(@RequestParam("token") String token) throws AuthenticationFailException {
         authenticationService.authenticate(token);
@@ -35,8 +39,8 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public ResponseDto signup(@RequestBody SignUpDto signUpDto) {
-        return userService.signUp(signUpDto);
+    public void signup(@RequestBody SignUpDto signUpDto) {
+        userProducer.sendCreateUserMessage(signUpDto);
     }
 
 

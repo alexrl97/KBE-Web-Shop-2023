@@ -1,6 +1,7 @@
 package com.kbe.web_shop.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.Gson;
 import com.kbe.web_shop.config.constants.Role;
 
 import javax.persistence.*;
@@ -89,5 +90,9 @@ public class User {
     }
 
     public User() {
+    }
+
+    public static User fromJsonString(String userJsonString) {
+        return new Gson().fromJson(userJsonString, User.class);
     }
 }

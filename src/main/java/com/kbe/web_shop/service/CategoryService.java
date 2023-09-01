@@ -19,7 +19,7 @@ public class CategoryService {
         return categoryRepo.findAll();
     }
 
-    public void editCategory(int categoryId, Category updateCategory) {
+    public void editCategory(Integer categoryId, Category updateCategory) {
         Category category = categoryRepo.getById(categoryId);
         category.setCategoryName(updateCategory.getCategoryName());
         category.setDescription(updateCategory.getDescription());

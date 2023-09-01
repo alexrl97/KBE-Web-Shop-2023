@@ -1,4 +1,4 @@
-package com.kbe.web_shop.dto;
+package com.kbe.web_shop.dto.product;
 
 import com.google.gson.Gson;
 import com.kbe.web_shop.model.Product;

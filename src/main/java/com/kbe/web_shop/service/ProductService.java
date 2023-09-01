@@ -1,6 +1,6 @@
 package com.kbe.web_shop.service;
 
-import com.kbe.web_shop.dto.ProductDto;
+import com.kbe.web_shop.dto.product.ProductDto;
 import com.kbe.web_shop.exception.ProductNotExistsException;
 import com.kbe.web_shop.model.Category;
 import com.kbe.web_shop.model.Product;

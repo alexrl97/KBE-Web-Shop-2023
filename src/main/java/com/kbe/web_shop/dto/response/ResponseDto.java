@@ -1,4 +1,4 @@
-package com.kbe.web_shop.dto;
+package com.kbe.web_shop.dto.response;
 
 public class ResponseDto {
 

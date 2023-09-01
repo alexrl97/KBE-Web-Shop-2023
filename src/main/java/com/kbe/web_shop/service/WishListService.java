@@ -1,8 +1,7 @@
 package com.kbe.web_shop.service;
 
-import com.kbe.web_shop.dto.ProductDto;
+import com.kbe.web_shop.dto.product.ProductDto;
 import com.kbe.web_shop.exception.CustomException;
-import com.kbe.web_shop.model.Cart;
 import com.kbe.web_shop.model.User;
 import com.kbe.web_shop.model.WishList;
 import com.kbe.web_shop.repository.WishListRepo;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -37,8 +37,8 @@ public class WishListService {
 
         WishList wishList = optionalWishList.get();
 
-        if (wishList.getUser() != user) {
-            throw  new CustomException("wish list does not belong to user: " +itemId);
+        if (!Objects.equals(wishList.getUser().getEmail(), user.getEmail())) {
+            throw  new CustomException("wish list does not belong to user: " +user.getEmail() + " " + wishList.getUser().getEmail());
         }
 
         wishListRepo.delete(wishList);

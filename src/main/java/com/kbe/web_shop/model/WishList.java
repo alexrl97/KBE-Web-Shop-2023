@@ -1,5 +1,7 @@
 package com.kbe.web_shop.model;
 
+import com.google.gson.Gson;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -77,5 +79,9 @@ public class WishList {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public static WishList fromJsonString(String wishListJsonString) {
+        return new Gson().fromJson(wishListJsonString, WishList.class);
     }
 }

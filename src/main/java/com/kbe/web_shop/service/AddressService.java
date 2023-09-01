@@ -4,6 +4,7 @@ import com.kbe.web_shop.dto.user.SignUpDto;
 import com.kbe.web_shop.model.Address;
 import com.kbe.web_shop.model.User;
 import com.kbe.web_shop.repository.AddressRepo;
+import com.kbe.web_shop.utils.Helper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class AddressService {
     @Autowired
     AddressRepo addressRepository;
 
-    public void createSignUpAdress(SignUpDto signupDto, User user){
+    public Address getAddressFromSignUpDto(SignUpDto signupDto, User user){
         Address address = new Address();
         address.setFirstName(signupDto.getFirstName());
         address.setLastName(signupDto.getLastName());
@@ -24,10 +25,17 @@ public class AddressService {
         address.setZip(signupDto.getZip());
         address.setCountry(signupDto.getCountry());
         address.setUser(user);
+        return address;
+    }
+
+    public void createUpdateAddress(Address address){
+        if(!Helper.notNull(address.getId()))
+            address.setId(new Address().getId());
         addressRepository.save(address);
     }
 
     public Address getLatestAdressForUser(User user){
         return addressRepository.findTopByUserOrderByCreatedDateDesc(user);
     }
+
 }

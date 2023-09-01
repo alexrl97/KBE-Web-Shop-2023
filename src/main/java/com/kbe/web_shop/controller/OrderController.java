@@ -1,14 +1,15 @@
 package com.kbe.web_shop.controller;
 
 import com.kbe.web_shop.common.ApiResponse;
-import com.kbe.web_shop.config.constants.Role;
 import com.kbe.web_shop.dto.checkout.CheckoutItemDto;
 import com.kbe.web_shop.dto.checkout.StripeResponse;
+import com.kbe.web_shop.dto.order.OrderCreateDto;
+import com.kbe.web_shop.dto.order.OrderSendDto;
 import com.kbe.web_shop.exception.AuthenticationFailException;
 import com.kbe.web_shop.exception.OrderNotFoundException;
 import com.kbe.web_shop.model.Order;
 import com.kbe.web_shop.model.User;
-import com.kbe.web_shop.producer.ProductProducer;
+import com.kbe.web_shop.producer.OrderProducer;
 import com.kbe.web_shop.service.AuthenticationService;
 import com.kbe.web_shop.service.OrderService;
 import com.stripe.exception.StripeException;
@@ -21,7 +22,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("/order")
@@ -31,6 +31,9 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    OrderProducer orderProducer;
 
     // stripe session checkout api
 
@@ -43,15 +46,16 @@ public class OrderController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<ApiResponse> placeOrder(@RequestParam("token") String token, @RequestParam("sessionId") String sessionId)
+    public ResponseEntity<ApiResponse> createOrder(@RequestParam("token") String token, @RequestParam("sessionId") String sessionId)
             throws AuthenticationFailException {
         // validate token
         authenticationService.authenticate(token);
         // retrieve user
         User user = authenticationService.getUser(token);
         // place the order
-        orderService.placeOrder(user, sessionId);
-        System.out.println(user.getEmail());
+        //orderService.createOrder(user, sessionId);
+        orderProducer.sendCreateOrderMessage(new OrderCreateDto(sessionId, user));
+
         return new ResponseEntity<>(new ApiResponse(true, "Order has been placed"), HttpStatus.CREATED);
     }
 
@@ -61,14 +65,13 @@ public class OrderController {
             if (trackingNumber.length() == 0)
                 return new ResponseEntity<>(new ApiResponse(false, "Tracking number empty"), HttpStatus.BAD_REQUEST);
             else {
-                orderService.sendOrder(orderId, trackingNumber);
+                //orderService.sendOrder(orderId, trackingNumber);
+                orderProducer.sendSendOrderMessage(new OrderSendDto(orderId, trackingNumber));
                 return new ResponseEntity<>(new ApiResponse(true, "Order send"), HttpStatus.OK);
             }
         }
         return new ResponseEntity<>(new ApiResponse(false, "Only Storehouse workers can send out orders"), HttpStatus.UNAUTHORIZED);
     }
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(OrderController.class);
 
     @GetMapping("/")
     public ResponseEntity<List<Order>> getAllOrdersByUser(@RequestParam("token") String token) throws AuthenticationFailException {

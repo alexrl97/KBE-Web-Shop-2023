@@ -1,5 +1,7 @@
 package com.kbe.web_shop.model;
 
+import com.google.gson.Gson;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
@@ -16,6 +18,7 @@ public class Category {
 
     @Column(name = "image_url")
     private @NotBlank String imageUrl;
+
 
     public Integer getId() {
         return id;
@@ -47,5 +50,9 @@ public class Category {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public static Category fromJsonString(String categoryJsonString) {
+        return new Gson().fromJson(categoryJsonString, Category.class);
     }
 }

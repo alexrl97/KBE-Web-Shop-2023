@@ -20,24 +20,34 @@ public class ProductConsumer {
     @Autowired
     CategoryRepo categoryRepo;
 
-
     @RabbitListener(queues = {"${product_create_queue}"})
     public void consumeCreateMessage(String message){
-        LOGGER.info(String.format("Received create message for product -> %s", message));
         ProductDto productDto = ProductDto.fromJsonString(message);
-        productService.createProduct(productDto, categoryRepo.findById(productDto.getCategoryId()).orElse(null));
+
+        try {
+            productService.createProduct(productDto, categoryRepo.findById(productDto.getCategoryId()).orElse(null));
+        } catch (Exception e) {
+            LOGGER.error("Error while processing create message:", e);
+        }
     }
 
     @RabbitListener(queues = {"${product_update_queue}"})
-    public void consumeUpdateMessage(String message) throws Exception {
-        LOGGER.info(String.format("Received update message for product -> %s", message));
+    public void consumeUpdateMessage(String message) {
         ProductDto productDto = ProductDto.fromJsonString(message);
-        productService.updateProduct(productDto, productDto.getId());
+
+        try {
+            productService.updateProduct(productDto, productDto.getId());
+        } catch (Exception e) {
+            LOGGER.error("Error while processing update message:", e);
+        }
     }
 
     @RabbitListener(queues = {"${product_delete_queue}"})
-    public void consumeDeleteMessage(String message) throws Exception {
-        LOGGER.info(String.format("Received delete message for product -> %s", message));
-        productService.deleteProduct(Integer.parseInt(message));
+    public void consumeDeleteMessage(String message) {
+        try {
+            productService.deleteProduct(Integer.parseInt(message));
+        } catch (Exception e) {
+            LOGGER.error("Error while processing delete message:", e);
+        }
     }
 }

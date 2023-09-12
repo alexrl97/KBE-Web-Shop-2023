@@ -16,11 +16,15 @@ public class AddressConsumer {
     @Autowired
     AddressService addressService;
 
-
     @RabbitListener(queues = {"${address_create_update_queue}"})
     public void consumeCreateAddressMessage(String message){
         LOGGER.info(String.format("Received create/update message for address -> %s", message));
         Address address = Address.fromJsonString(message);
-        addressService.createUpdateAddress(address);
+
+        try {
+            addressService.createUpdateAddress(address);
+        } catch (Exception e) {
+            LOGGER.error("Error while processing create/update address message:", e);
+        }
     }
 }

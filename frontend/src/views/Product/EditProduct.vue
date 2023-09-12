@@ -57,7 +57,6 @@
         props: ["baseURL", "categories", "products"],
         methods: {
             async editProduct() {
-                console.log('product', this.product)
                 await axios.post(`${this.baseURL}product/update/${this.id}?token=${this.token}`,
                     this.product)
                     .then(() => {

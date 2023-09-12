@@ -17,6 +17,7 @@ import Failed from '../views/payment/Failed';
 import Checkout from '../views/Checkout/Checkout';
 import OrderHistory from "../views/order/OrderHistory";
 import OrderDetails from "../views/order/OrderDetails";
+import AddressUpdate from "@/views/address/AddressUpdate";
 
 const routes = [
   {
@@ -115,6 +116,11 @@ const routes = [
     path:'/order/:id',
     name:'OrderDetails',
     component: OrderDetails
+  },
+  {
+    path:'/address',
+    name:'AddressUpdate',
+    component: AddressUpdate
   }
 
 ]

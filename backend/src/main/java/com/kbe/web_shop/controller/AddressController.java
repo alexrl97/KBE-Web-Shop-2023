@@ -4,6 +4,7 @@ import com.kbe.web_shop.common.ApiResponse;
 import com.kbe.web_shop.model.Address;
 import com.kbe.web_shop.model.User;
 import com.kbe.web_shop.producer.AddressProducer;
+import com.kbe.web_shop.repository.AddressRepo;
 import com.kbe.web_shop.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/address")
 public class AddressController {
+
+    @Autowired
+    private AddressRepo addressRepo;
 
     @Autowired
     private AuthenticationService authenticationService;
@@ -34,5 +38,13 @@ public class AddressController {
         addressProducer.sendCreateUpdateAddressMessage(address);
 
         return new ResponseEntity<>(new ApiResponse(true, "Address Updated"), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/latest")
+    public ResponseEntity<Address> getLatestAddressForUser(@RequestParam("token") String token) {
+        authenticationService.authenticate(token);
+        User user = authenticationService.getUser(token);
+        Address address = addressRepo.findTopByUserOrderByCreatedDateDesc(user);
+        return new ResponseEntity<>(address, HttpStatus.OK);
     }
 }

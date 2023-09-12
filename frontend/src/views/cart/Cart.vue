@@ -57,13 +57,25 @@
         <div class="col-2"></div>
         <div class="col-12"><hr /></div>
       </div>
-  
+
+      <div style="text-align: center">
+        <br>Versandaddresse:
+        <br>
+        <p>
+          <br>{{this.firstName}} {{this.lastName}}
+          <br v-if="this.company !== ''" >{{this.company}}
+          <br>{{this.street}} {{this.houseNumber}}
+          <br>{{this.zip}} {{this.city}}
+          <br>{{this.country}}
+        </p>
+
+        <router-link  class="btn btn-success mt-2" type="button" :to="{name : 'AddressUpdate'}">Aktualisieren</router-link>
+      </div>
+
       <!-- display the price -->
       <div class="total-cost pt-2 text-right">
         <h5>Gesamtpreis: {{ totalCost.toFixed(2) }}€</h5>
-        <button type="button" class="btn btn-primary confirm" @click="checkout">
-        Bezahlen
-      </button>
+        <button type="button" class="btn btn-primary confirm" @click="checkout">Bezahlen</button>
       </div>
     </div>
   </template>
@@ -75,6 +87,14 @@
         cartItems: [],
         token: null,
         totalCost: 0,
+        firstName: null,
+        lastName: null,
+        company: null,
+        street: null,
+        houseNumber: null,
+        city: null,
+        zip: null,
+        country: null,
       };
     },
     props: ['baseURL'],
@@ -89,6 +109,23 @@
             this.totalCost = result.totalCost;
           })
           .catch((err) => console.log('err', err));
+      },
+
+      getLatestAddress(){
+        axios
+            .get(`${this.baseURL}address/latest?token=${this.token}`)
+            .then((res) => {
+              const result = res.data;
+              this.firstName = result.firstName;
+              this.lastName = result.lastName;
+              this.company = result.company;
+              this.street = result.street;
+              this.houseNumber = result.houseNumber;
+              this.city = result.city;
+              this.zip = result.zip;
+              this.country = result.country;
+            })
+            .catch((err) => console.log('err', err));
       },
 
       deleteItem(itemId) {
@@ -110,6 +147,7 @@
     mounted() {
       this.token = localStorage.getItem('token');
       this.listCartItems();
+      this.getLatestAddress();
     },
   };
   </script>

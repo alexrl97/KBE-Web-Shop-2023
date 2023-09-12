@@ -11,8 +11,8 @@
       <div class="row">
         <div class="col-12 justify-content-center d-flex pt-3">
           <div id="signup" class="flex-item border">
-            <h2 v-if="role === 'storehouse'" class="pt-4 pl-4">Mitarbeiterregistrierung</h2>
-            <h2 v-else class="pt-4 pl-4">Kundenregistrierung</h2>
+            <h2 style="text-align: center" v-if="role === 'storehouse'" class="pt-4 pl-4">Mitarbeiterregistrierung</h2>
+            <h2 style="text-align: center" v-else class="pt-4 pl-4">Kundenregistrierung</h2>
             <form @submit="signup" class="pt-4 pl-4 pr-4">
               <div class="form-group">
                 <label for="Email">E-Mail</label>

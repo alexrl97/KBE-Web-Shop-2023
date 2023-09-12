@@ -37,5 +37,4 @@ public class AddressService {
     public Address getLatestAdressForUser(User user){
         return addressRepository.findTopByUserOrderByCreatedDateDesc(user);
     }
-
 }

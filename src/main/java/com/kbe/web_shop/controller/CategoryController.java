@@ -46,17 +46,17 @@ public class CategoryController {
 
         if(authenticationService.hasEditPermission(token)) {
             if (!categoryService.findById(categoryId)) {
-                return new ResponseEntity<ApiResponse>(new ApiResponse(false, "category does not exists"), HttpStatus.NOT_FOUND);
+                return new ResponseEntity<ApiResponse>(new ApiResponse(false, "category does not exist"), HttpStatus.NOT_FOUND);
             }
-            categoryService.editCategory(categoryId, category);
-            //categoryProducer.sendUpdateMessage(category);
+            //categoryService.editCategory(categoryId, category);
+            categoryProducer.sendUpdateMessage(category);
             return new ResponseEntity<ApiResponse>(new ApiResponse(true, "category has been updated"), HttpStatus.OK);
         }
         return new ResponseEntity<ApiResponse>(new ApiResponse(false, "only storehouse users can update a category"), HttpStatus.UNAUTHORIZED);
     }
 
     @DeleteMapping ("/delete/{categoryId}")
-    public ResponseEntity<ApiResponse> deleteCategory(@RequestParam("token") String token, @PathVariable("categoryId") Integer categoryId) throws Exception {
+    public ResponseEntity<ApiResponse> deleteCategory(@RequestParam("token") String token, @PathVariable("categoryId") Integer categoryId) {
         if(authenticationService.hasEditPermission(token)) {
             //categoryService.deleteCategory(categoryId);
             categoryProducer.sendDeleteMessage(categoryId.toString());

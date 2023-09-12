@@ -44,19 +44,16 @@ public class RabbitMQConfig {
     @Value("${cart_add_queue}")
     private String cartAddQueue;
 
-    @Value("${cart_update_queue}")
-    private String cartUpdateQueue;
-
     @Value("${cart_delete_queue}")
     private String cartDeleteQueue;
 
     @Value("${cart_delete_all_queue}")
     private String cartDeleteAllQueue;
 
-    @Value("${create_order_queue}")
+    @Value("${order_create_queue}")
     private String createOrderQueue;
 
-    @Value("${send_order_queue}")
+    @Value("${order_send_queue}")
     private String sendOrderQueue;
 
     @Value("${authentication_token_create_queue}")
@@ -95,19 +92,16 @@ public class RabbitMQConfig {
     @Value("${cart_add_routing_key}")
     private String cartAddRoutingKey;
 
-    @Value("${cart_update_routing_key}")
-    private String cartUpdateRoutingKey;
-
     @Value("${cart_delete_routing_key}")
     private String cartDeleteRoutingKey;
 
     @Value("${cart_delete_all_routing_key}")
     private String cartDeleteAllRoutingKey;
 
-    @Value("${create_order_routing_key}")
+    @Value("${order_create_routing_key}")
     private String createOrderRoutingKey;
 
-    @Value("${send_order_routing_key}")
+    @Value("${order_send_routing_key}")
     private String sendOrderRoutingKey;
 
     @Value("${authentication_token_create_routing_key}")
@@ -170,11 +164,6 @@ public class RabbitMQConfig {
     @Bean
     public Queue cartAddQueue() {
         return new Queue(cartAddQueue);
-    }
-
-    @Bean
-    public Queue cartUpdateQueue() {
-        return new Queue(cartUpdateQueue);
     }
 
     @Bean
@@ -255,11 +244,6 @@ public class RabbitMQConfig {
     @Bean
     public Binding cartAddBinding(Queue cartAddQueue, TopicExchange exchange) {
         return BindingBuilder.bind(cartAddQueue).to(exchange).with(cartAddRoutingKey);
-    }
-
-    @Bean
-    public Binding cartUpdateBinding(Queue cartUpdateQueue, TopicExchange exchange) {
-        return BindingBuilder.bind(cartUpdateQueue).to(exchange).with(cartUpdateRoutingKey);
     }
 
     @Bean

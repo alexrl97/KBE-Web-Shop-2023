@@ -50,11 +50,10 @@ public class ProductController {
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
-    // create an api to edit the product
 
 
     @PostMapping("/update/{productId}")
-    public ResponseEntity<ApiResponse> updateProduct(@RequestParam("token") String token, @PathVariable("productId") Integer productId, @RequestBody ProductDto productDto) throws Exception {
+    public ResponseEntity<ApiResponse> updateProduct(@RequestParam("token") String token, @PathVariable("productId") @RequestBody ProductDto productDto) {
         if(authenticationService.hasEditPermission(token)) {
             Optional<Category> optionalCategory = categoryRepo.findById(productDto.getCategoryId());
             if (!optionalCategory.isPresent()) {
@@ -68,7 +67,7 @@ public class ProductController {
     }
 
     @DeleteMapping ("/delete/{productId}")
-    public ResponseEntity<ApiResponse> deleteProduct(@RequestParam("token") String token, @PathVariable("productId") Integer productId) throws Exception {
+    public ResponseEntity<ApiResponse> deleteProduct(@RequestParam("token") String token, @PathVariable("productId") Integer productId){
         if(authenticationService.hasEditPermission(token)) {
             productProducer.sendDeleteMessage(productId.toString());
             //productService.deleteProduct(productId);

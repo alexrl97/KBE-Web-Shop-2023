@@ -8,7 +8,6 @@ import com.kbe.web_shop.repository.WishListRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -44,14 +43,7 @@ public class WishListService {
         wishListRepo.delete(wishList);
     }
 
-    public List<ProductDto> getWishListForUser(User user) {
-        final List<WishList> wishLists = wishListRepo.findAllByUserOrderByCreatedDateDesc(user);
-        List<ProductDto> productDtos = new ArrayList<>();
-        for (WishList wishList: wishLists) {
-            productDtos.add(productService.getProductDto(wishList.getProduct()));
-        }
-
-        return productDtos;
+    public List<WishList> getWishListForUser(User user) {
+        return wishListRepo.findAllByUserOrderByCreatedDateDesc(user);
     }
-
 }

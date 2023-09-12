@@ -72,15 +72,6 @@ public class CartController {
         return new ResponseEntity<>(cartListDto, HttpStatus.OK);
     }
 
-    @PutMapping("/update/{cartItemId}")
-    public ResponseEntity<ApiResponse> updateCartItem(@RequestBody @Valid CartDto cartDto,
-                                                      @RequestParam("token") String token) throws AuthenticationFailException, ProductNotExistsException {
-        authenticationService.authenticate(token);
-        //cartService.updateCartItem(cartDto);
-        cartProducer.sendUpdateCartItemMessage(cartDto);
-        return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Product has been updated"), HttpStatus.OK);
-    }
-
     @DeleteMapping("/delete/{cartItemId}")
     public ResponseEntity<ApiResponse> deleteCartItem(@PathVariable("cartItemId") Integer itemId,
                                                       @RequestParam("token") String token) {

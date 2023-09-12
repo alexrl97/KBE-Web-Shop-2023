@@ -36,11 +36,8 @@ public class WishList {
     public WishList() {
     }
 
-    public WishList(Integer id, User user, Date createdDate, Product product) {
-        this.id = id;
-        this.user = user;
-        this.createdDate = createdDate;
-        this.product = product;
+    public WishList(Integer id, Product product) {
+
     }
 
     public WishList(User user, Product product) {

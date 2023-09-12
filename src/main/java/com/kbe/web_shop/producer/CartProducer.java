@@ -19,9 +19,6 @@ public class CartProducer {
     @Value("${cart_add_routing_key}")
     private String cartAddRoutingKey;
 
-    @Value("${cart_update_routing_key}")
-    private String cartUpdateRoutingKey;
-
     @Value("${cart_delete_routing_key}")
     private String cartDeleteRoutingKey;
 
@@ -40,12 +37,6 @@ public class CartProducer {
         String message = Helper.toJsonString(cartDto);
         LOGGER.info("Sending add to cart message -> {}", message);
         rabbitTemplate.convertAndSend(directExchange, cartAddRoutingKey, message);
-    }
-
-    public void sendUpdateCartItemMessage(CartDto cartDto) {
-        String message = Helper.toJsonString(cartDto);
-        LOGGER.info("Sending update cart item message -> {}", message);
-        rabbitTemplate.convertAndSend(directExchange, cartUpdateRoutingKey, message);
     }
 
     public void sendDeleteCartItemMessage(CartDeleteItemDto cartDeleteItemDto) {

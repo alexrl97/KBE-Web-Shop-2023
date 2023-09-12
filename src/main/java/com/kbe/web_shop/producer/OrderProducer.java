@@ -2,7 +2,6 @@ package com.kbe.web_shop.producer;
 
 import com.kbe.web_shop.dto.order.OrderCreateDto;
 import com.kbe.web_shop.dto.order.OrderSendDto;
-import com.kbe.web_shop.model.Order;
 import com.kbe.web_shop.utils.Helper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,10 +15,10 @@ public class OrderProducer {
     @Value("${direct_exchange}")
     private String directExchange;
 
-    @Value("${create_order_routing_key}")
+    @Value("${order_create_routing_key}")
     private String createOrderRoutingKey;
 
-    @Value("${send_order_routing_key}")
+    @Value("${order_send_routing_key}")
     private String sendOrderRoutingKey;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderProducer.class);

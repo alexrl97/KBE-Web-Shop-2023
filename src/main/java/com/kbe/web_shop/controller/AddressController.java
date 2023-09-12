@@ -35,5 +35,4 @@ public class AddressController {
 
         return new ResponseEntity<>(new ApiResponse(true, "Address Updated"), HttpStatus.CREATED);
     }
-
 }

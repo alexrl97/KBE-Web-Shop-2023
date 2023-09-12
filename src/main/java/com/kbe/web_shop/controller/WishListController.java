@@ -38,7 +38,6 @@ public class WishListController {
         // authenticate the token
         authenticationService.authenticate(token);
 
-
         // find the user
 
         User user = authenticationService.getUser(token);
@@ -50,15 +49,13 @@ public class WishListController {
         //wishListService.createWishlist(wishList);
         wishListProducer.sendCreateMessage(wishList);
 
-
         ApiResponse apiResponse = new ApiResponse(true, "Added to wishlist");
         return  new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
-
     }
 
     @DeleteMapping("/delete/{wishListItemId}")
-    public ResponseEntity<ApiResponse> deleteCartItem(@PathVariable("wishListItemId") Integer itemId,
-                                                      @RequestParam("token") String token) {
+    public ResponseEntity<ApiResponse> deleteWishListItem(@PathVariable("wishListItemId") Integer itemId,
+                                                          @RequestParam("token") String token) {
 
         // authenticate the token
         authenticationService.authenticate(token);
@@ -76,7 +73,7 @@ public class WishListController {
     // get all wishlist item for a user
 
     @GetMapping("/{token}")
-    public ResponseEntity<List<ProductDto>> getWishList(@PathVariable("token") String token) {
+    public ResponseEntity<List<WishList>> getWishList(@PathVariable("token") String token) {
 
         // authenticate the token
         authenticationService.authenticate(token);
@@ -86,7 +83,7 @@ public class WishListController {
 
         User user = authenticationService.getUser(token);
 
-        List<ProductDto> productDtos = wishListService.getWishListForUser(user);
+        List<WishList> productDtos = wishListService.getWishListForUser(user);
 
         return new ResponseEntity<>(productDtos, HttpStatus.OK);
 

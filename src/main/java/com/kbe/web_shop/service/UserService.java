@@ -51,7 +51,7 @@ public class UserService {
         if (Helper.notNull(userRepository.findByEmail(signupDto.getEmail()))) {
             throw new CustomException("User already exists");
         }
-        // first encrypt the password
+
         String encryptedPassword = signupDto.getPassword();
         try {
             encryptedPassword = hashPassword(signupDto.getPassword());
@@ -63,19 +63,16 @@ public class UserService {
 
         User createdUser;
         try {
-            // save the User
             createdUser = userRepository.save(user);
-            // generate token for user
             final AuthenticationToken authenticationToken = new AuthenticationToken(createdUser);
-            // save token in database
+
             //authenticationService.saveConfirmationToken(authenticationToken);
             authenticationProducer.sendCreateAuthenticationTokenMessage(authenticationToken);
+            if(signupDto.getRole().equals(Role.customer))
             addressProducer.sendCreateUpdateAddressMessage(addressService.getAddressFromSignUpDto(signupDto, user));
 
-            // success in creating
             return new ResponseDto(ResponseStatus.success.toString(), USER_CREATED);
         } catch (Exception e) {
-            // handle signup error
             throw new CustomException(e.getMessage());
         }
     }
@@ -90,15 +87,12 @@ public class UserService {
     }
 
     public SignInResponseDto signIn(SignInDto signInDto) {
-        // find user by email
 
         User user = userRepository.findByEmail(signInDto.getEmail());
 
         if (Objects.isNull(user)) {
             throw new AuthenticationFailException("user is not valid");
         }
-
-        // hash the password
 
         try {
             if (!user.getPassword().equals(hashPassword(signInDto.getPassword()))) {
@@ -108,14 +102,9 @@ public class UserService {
             e.printStackTrace();
         }
 
-        // compare the password in DB
-
-        // if password match
-
         AuthenticationToken token = authenticationService.getToken(user);
         Role role = authenticationService.getUser(token.getToken()).getRole();
 
-        // retrive the token
 
         if (Objects.isNull(token)) {
             throw new CustomException("token is not present");
@@ -123,6 +112,5 @@ public class UserService {
 
         return new SignInResponseDto("sucess", token.getToken(), role);
 
-        // return response
     }
 }

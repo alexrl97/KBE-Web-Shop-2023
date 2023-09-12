@@ -24,7 +24,6 @@ public class CartService {
 
     public void addToCart(CartDto cartDto) {
 
-        // validate if the product id is valid
         Product product = productService.findById(cartDto.getProductId());
 
         Cart cart = new Cart();
@@ -33,7 +32,6 @@ public class CartService {
         cart.setQuantity(cartDto.getQuantity());
         cart.setCreatedDate(new Date());
 
-        // save the cart
         cartRepository.save(cart);
     }
 
@@ -55,15 +53,7 @@ public class CartService {
     }
 
 
-    public void updateCartItem(CartDto cartDto){
-        Cart cart = cartRepository.getOne(cartDto.getId());
-        cart.setQuantity(cartDto.getQuantity());
-        cart.setCreatedDate(new Date());
-        cartRepository.save(cart);
-    }
-
     public void deleteCartItem(Integer cartItemId, User user) {
-        // the item id belongs to user
 
         Optional<Cart> optionalCart = cartRepository.findById(cartItemId);
 

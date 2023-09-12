@@ -25,13 +25,6 @@ public class CartConsumer {
         cartService.addToCart(cartDto);
     }
 
-    @RabbitListener(queues = {"${cart_update_queue}"})
-    public void consumeUpdateCartItemMessage(String message) {
-        LOGGER.info("Received update cart item message -> {}", message);
-        CartDto cartDto = CartDto.fromJsonString(message);
-        cartService.updateCartItem(cartDto);
-    }
-
     @RabbitListener(queues = {"${cart_delete_queue}"})
     public void consumeDeleteCartItemMessage(String message) {
         LOGGER.info("Received delete cart item message for cartItemId -> {}", message);

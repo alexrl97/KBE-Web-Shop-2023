@@ -29,14 +29,11 @@ public class AuthenticationService {
         if(Objects.isNull(authenticationToken)) {
             return null;
         }
-        // authenticationToken is not null
         return authenticationToken.getUser();
     }
 
     public void authenticate(String token) throws AuthenticationFailException {
-        // null check
         if(Objects.isNull(token)) {
-            // throw an exception
             throw new AuthenticationFailException("token not present");
         }
         if(Objects.isNull(getUser(token))) {
@@ -47,4 +44,6 @@ public class AuthenticationService {
     public boolean hasEditPermission(String token){
         return getUser(token).getRole().equals(Role.storehouse);
     }
+
+
 }

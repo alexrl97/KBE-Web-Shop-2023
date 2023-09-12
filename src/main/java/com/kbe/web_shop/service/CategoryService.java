@@ -20,7 +20,7 @@ public class CategoryService {
     }
 
     public void editCategory(Integer categoryId, Category updateCategory) {
-        Category category = categoryRepo.getById(categoryId);
+        Category category = categoryRepo.findById(categoryId).get();
         category.setCategoryName(updateCategory.getCategoryName());
         category.setDescription(updateCategory.getDescription());
         category.setImageUrl(updateCategory.getImageUrl());

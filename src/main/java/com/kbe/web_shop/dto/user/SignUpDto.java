@@ -3,6 +3,7 @@ package com.kbe.web_shop.dto.user;
 import com.google.gson.Gson;
 import com.kbe.web_shop.config.constants.Role;
 import com.kbe.web_shop.model.Category;
+import org.hibernate.annotations.Parameter;
 
 import javax.persistence.Column;
 
@@ -13,6 +14,8 @@ public class SignUpDto {
 
     private String company;
     private String email;
+
+
     private String password;
 
     private Role role;

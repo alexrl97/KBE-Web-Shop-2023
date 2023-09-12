@@ -1,6 +1,5 @@
 package com.kbe.web_shop.controller;
 
-import com.kbe.web_shop.dto.response.ResponseDto;
 import com.kbe.web_shop.dto.user.SignInDto;
 import com.kbe.web_shop.dto.user.SignInResponseDto;
 import com.kbe.web_shop.dto.user.SignUpDto;
@@ -39,7 +38,7 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public void signup(@RequestBody SignUpDto signUpDto) {
+    public void signUp(@RequestBody SignUpDto signUpDto) {
         userProducer.sendCreateUserMessage(signUpDto);
     }
 

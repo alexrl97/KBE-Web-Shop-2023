@@ -10,7 +10,6 @@
             </div>
         </div>
         <div class="row">
-<!--            display all the products in productbox component-->
             <div v-for="product of products" :key="product.id"
                  class="col-lg-2 col-md-3 col-sm-4 col-6 pt-3 justify-content-around d-flex">
                 <ProductBox :product="product"/>

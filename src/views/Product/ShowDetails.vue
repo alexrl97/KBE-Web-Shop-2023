@@ -90,8 +90,6 @@ export default {
     },
     addToCart() {
       if (!this.token) {
-        // user is not logged in
-        // show some error
         swal({
           text: "Bitte einloggen um Karten dem Warenkorb hinzuzufügen",
           icon: "error",
@@ -109,8 +107,9 @@ export default {
             swal({
               text: "Karte dem Warenkorb hinzugefügt",
               icon: "success",
+            }).then(() => {
+              this.$emit("fetchData");
             });
-            this.$emit("fetchData");
           }
         })
         .catch((err) => console.log("err", err));

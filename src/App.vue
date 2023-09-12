@@ -1,5 +1,5 @@
 <template>
-  <Navbar :cartCount="cartCount" @resetCartCount="resetCartCount" />
+  <Navbar :key="navBarReloadKey" :cartCount="cartCount" @resetCartCount="resetCartCount" />
   <router-view
     v-if="categories && products"
     style="min-height: 60vh"
@@ -24,6 +24,7 @@ export default {
       products: null,
       categories: null,
       cartCount: 0,
+      navBarReloadKey: 0,
     };
   },
   methods: {
@@ -42,7 +43,6 @@ export default {
           this.products = res.data;
         })
         .catch((err) => console.log('err', err));
-      // fetch cart item if token is present i.e logged in
       if (this.token) {
         axios
           .get(`${this.baseURL}cart/?token=${this.token}`)
@@ -52,6 +52,7 @@ export default {
           })
           .catch((err) => console.log('err', err));
       }
+      this.navBarReloadKey++;
     },
     resetCartCount() {
       this.cartCount = 0;

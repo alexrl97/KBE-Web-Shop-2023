@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="col-md-2">
-        <div v-if="order.status !== 'send'">
+        <div v-if="order.status !== 'send' && role === 'storehouse'" >
           <input
               v-model="order.trackingNumber"
               type="text"
@@ -40,9 +40,12 @@
             Versenden
           </button>
 
-
-
         </div>
+
+          <div v-if="role === 'customer'">
+          <br>Versandaddresse:
+          <br>
+          </div>
         <p>
           <br>{{order.firstName}} {{order.lastName}}
           <br v-if="order.company !== ''" >{{order.company}}
@@ -57,12 +60,14 @@
 </template>
 
 <script>
+import swal from "sweetalert";
 const axios = require('axios')
 export default {
 
   data() {
     return {
       token: null,
+      role: null,
       orderList : []
     }
   },
@@ -109,11 +114,16 @@ export default {
 
     sendOrder(orderID, trackingNumber) {
       axios
-          .post(`${this.baseURL}order/send/${orderID}?trackingNumber=${trackingNumber}`)
+          .post(`${this.baseURL}order/send/${orderID}?token=${this.token}&trackingNumber=${trackingNumber}`)
           .then((response) => {
-            this.orderList = [];
-            this.listOrders();
             console.log('Bestellung versendet:', response.data);
+            swal({
+              text: "Bestellung versendet",
+              icon: "success",
+            }).then(() => {
+              this.orderList = [];
+              this.listOrders();
+            });
           })
           .catch((error) => {
             console.error('Fehler beim Versenden der Bestellung:', error);
@@ -122,6 +132,7 @@ export default {
   },
   mounted() {
     this.token = localStorage.getItem("token");
+    this.role = localStorage.getItem("role");
     this.listOrders();
   },
 };

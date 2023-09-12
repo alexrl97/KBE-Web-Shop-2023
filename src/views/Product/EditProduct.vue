@@ -64,7 +64,7 @@
                         this.$emit("fetchData");
                         this.$router.push({name: 'AdminProduct'})
                         swal({
-                            text: "product has been updated successfully",
+                            text: "Produkt aktualisiert",
                             icon: "success"
                         })
                     }).catch(err => console.log('err', err));
@@ -77,7 +77,7 @@
                   this.$emit("fetchData");
                   this.$router.push({name: 'AdminProduct'})
                   swal({
-                    text: "product has been deleted successfully",
+                    text: "Produkt gelöscht",
                     icon: "success"
                   })
                 }).catch(err => console.log('err', err));

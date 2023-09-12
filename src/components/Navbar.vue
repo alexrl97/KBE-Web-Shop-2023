@@ -18,7 +18,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!--      Search Bar-->
+        <!--
         <form class="form-inline ml-auto mr-auto">
           <div class="input-group">
             <input size="80" type="text" class="form-control" placeholder="Suche Karten" aria-label="Username" aria-describedby="basic-addon1">
@@ -31,8 +31,7 @@
             </div>
           </div>
         </form>
-
-
+        -->
 
         <!-- dropdown for browse -->
         <ul class="navbar-nav ml-auto">
@@ -93,11 +92,12 @@
         this.token = null;
         this.role = null;
         swal({
-        text: "Logged you out. Visit again",
+        text: "Ausloggen erfolgreich",
         icon: "success",
-      });
-      this.$emit("resetCartCount");
-      this.$router.push({ name: "Home" });
+          }).then(() => {
+          this.$emit("resetCartCount");
+          this.$router.push({ name: "Signin" });
+        }).catch((err) => console.log("err", err));
       },
     },
     mounted() {

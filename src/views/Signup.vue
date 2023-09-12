@@ -15,7 +15,7 @@
             <h2 v-else class="pt-4 pl-4">Kundenregistrierung</h2>
             <form @submit="signup" class="pt-4 pl-4 pr-4">
               <div class="form-group">
-                <label for="Email">Email</label>
+                <label for="Email">E-Mail</label>
                 <input
                   type="email"
                   v-model="email"
@@ -121,7 +121,7 @@
   
               <!-- password -->
               <div class="form-group">
-                <label for="Password"> Password</label>
+                <label for="Password"> Passwort</label>
                 <input
                   type="password"
                   v-model="password"
@@ -132,7 +132,7 @@
   
               <!-- confirm password -->
               <div class="form-group">
-                <label for="Password"> Password bestätigen</label>
+                <label for="Password"> Passwort bestätigen</label>
                 <input
                   type="password"
                   v-model="confirmPassword"
@@ -153,6 +153,7 @@
   <script>
   import axios from "axios";
   import swal from "sweetalert";
+  import CryptoJS from 'crypto-js';
   export default {
     props: ["baseURL"],
     data() {
@@ -175,9 +176,9 @@
       async signup(e) {
         e.preventDefault();
         if (this.password === this.confirmPassword) {
+          if (this.role === '' || this.role === null) this.role = 'customer';
 
-          if(this.role === '')
-            this.role = 'customer';
+          const hashedPassword = CryptoJS.SHA256(this.password).toString();
 
           const user = {
             email: this.email,
@@ -185,24 +186,25 @@
             lastName: this.lastName,
             company: this.company,
             role: this.role,
-            password: this.password,
+            password: hashedPassword,
             street: this.street,
             houseNumber: this.houseNumber,
             city: this.city,
             zip: this.zip,
             country: this.country,
           };
+
           console.log("user", user);
           await axios
-            .post(`${this.baseURL}user/signup`, user)
-            .then(() => {
-              this.$router.replace("/");
-              swal({
-                text: "Registrierung erfolgreich, bitte einloggen",
-                icon: "success",
-              });
-            })
-            .catch((err) => console.log("err", err));
+              .post(`${this.baseURL}user/signup`, user)
+              .then(() => {
+                this.$router.replace("/");
+                swal({
+                  text: "Registrierung erfolgreich, bitte einloggen",
+                  icon: "success",
+                });
+              })
+              .catch((err) => console.log("err", err));
         } else {
           swal({
             text: "Passwörter stimmen nicht überein",

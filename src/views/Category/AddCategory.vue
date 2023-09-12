@@ -14,15 +14,15 @@
             <input type="text" class="form-control" v-model="categoryName" />
           </div>
           <div class="form-group">
-            <label>Description</label>
+            <label>Beschreibung</label>
             <textarea type="text" class="form-control" v-model="description" />
           </div>
           <div class="form-group">
-            <label>Image</label>
+            <label>Bild URL</label>
             <input type="text" class="form-control" v-model="imageUrl" />
           </div>
           <button type="button" class="btn btn-primary" @click="addCategory">
-            Submit
+            Speichern
           </button>
         </form>
       </div>

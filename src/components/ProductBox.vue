@@ -23,24 +23,27 @@
             v-show="$route.name === 'AdminProduct'">
                 <button v-if="role === 'storehouse'" id="button" class="btn btn-primary" style="margin-bottom: 0%">Bearbeiten</button>
             </router-link>
-
         </div>
     </div>
 </template>
 <script>
-    export default {
-        name: "ProductBox",
-        props: ["product"],
 
-      data() {
-        return {
-          role: null,
-        };
-      },
-      mounted() {
-        this.role = localStorage.getItem("role");
-      },
-    }
+export default {
+  name: "ProductBox",
+  props: ["baseURL","product"],
+
+  data() {
+    return {
+      role: null,
+      token: null,
+    };
+  },
+
+  mounted() {
+    this.token = localStorage.getItem("token");
+    this.role = localStorage.getItem("role");
+  },
+}
 </script>
 <style scoped>
     .card-img-top {

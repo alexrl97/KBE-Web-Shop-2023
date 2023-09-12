@@ -1,12 +1,12 @@
 <template>
   <div class="alert alert-danger" role="alert">
-    Payment failed
+    Zahlung abgelehnt
   </div>
 </template>
 
 <script>
 export default {
-  name:'FailedPayment',
+  name:'Zahlung abgelehnt',
   mounted(){
   }
 }

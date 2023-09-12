@@ -1,10 +1,11 @@
 <template>
   <div class="alert alert-success" role="alert" id="message">
-    Payment successful
+    Zahlung erfolgreich
   </div>
 </template>
 
 <script>
+import swal from "sweetalert";
 const axios = require('axios')
 export default {
   name:'PaymentSuccess',
@@ -17,12 +18,21 @@ export default {
   },
   methods:{
     saveOrder() {
-      axios.post(this.baseURL+"order/add/?token="+this.token+"&sessionId="+this.sessionId)
-          .then(()=>{
-            document.getElementById("message").innerHTML = "order placed";
-          }).catch((error)=>{
-        console.log(error);
-      })
+      axios
+          .post(this.baseURL + "order/add/?token=" + this.token + "&sessionId=" + this.sessionId)
+          .then(() => {
+            // Show the SweetAlert and capture the result
+            swal({
+              text: "Bestellung erhalten",
+              icon: "success",
+              confirmButtonText: "Okay",
+            }).then(() => {
+                this.$router.push({ name: "OrderHistory" });
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     }
   },
   mounted(){

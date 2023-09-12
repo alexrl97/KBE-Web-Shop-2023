@@ -53,7 +53,7 @@
                     this.category)
                 .then(() => {
                     this.$emit("fetchData");
-                    this.$router.push({name: 'AdminCategory'})
+                    this.$router.push({name: 'Category'})
                     swal({
                         text: "category has been updated successfully",
                         icon: "success"

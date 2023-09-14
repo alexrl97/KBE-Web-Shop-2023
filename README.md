@@ -1,8 +1,8 @@
 # KBE Web Shop 2023 - Yu-Gi-OH Card Shop
 
-## Preview
+## Preview: Cart, Address, Order, Pay & Send Features
 
-![](https://s11.gifyu.com/images/S4hs7.gif)
+![screen-capture (4) (2)-min (1)](https://github.com/alexrl97/KBE-Web-Shop-2023/assets/72817183/eae3f775-f152-4372-9f82-5fea1996c02d)
 
 ## Project setup
 
@@ -64,8 +64,9 @@ Add the categories first since a category is mandatory to add a product.
 ### URL's
 #### Swagger UI: http://localhost:8080/swagger-ui.html
 #### Frontend: http://localhost:8081/
-###
-###
+### 
+### 
+
 ### Required
 #####
 ##### - Docker

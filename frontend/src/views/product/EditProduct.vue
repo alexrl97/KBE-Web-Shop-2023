@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-group">
                         <label>Preis</label>
-                        <input type="number" class="form-control" v-model="product.price" required/>
+                        <input type="number" lang="en" step=".01" class="form-control" v-model="product.price" required/>
                     </div>
                   <div class="d-flex justify-content-between"> <!-- Use the d-flex class to create a flex container and justify-content-between to align items at the ends -->
                     <button type="button" class="btn btn-primary" @click="editProduct">Speichern</button>
@@ -57,15 +57,15 @@
         props: ["baseURL", "categories", "products"],
         methods: {
             async editProduct() {
-                await axios.post(`${this.baseURL}product/update/${this.id}?token=${this.token}`,
-                    this.product)
+                await axios.post(`${this.baseURL}product/update/${this.id}?token=${this.token}`,this.product)
                     .then(() => {
-                        this.$emit("fetchData");
-                        this.$router.push({name: 'AdminProduct'})
                         swal({
                             text: "Produkt aktualisiert",
                             icon: "success"
-                        })
+                        }).then(() => {
+                          this.$emit("fetchData");
+                          this.$router.push({name: 'AdminProduct'})
+                        });
                     }).catch(err => console.log('err', err));
             },
           async deleteProduct() {
@@ -73,12 +73,13 @@
             await axios.delete(`${this.baseURL}product/delete/${this.id}?token=${this.token}`,
                 this.product)
                 .then(() => {
-                  this.$emit("fetchData");
-                  this.$router.push({name: 'AdminProduct'})
                   swal({
                     text: "Produkt gelöscht",
                     icon: "success"
-                  })
+                  }).then(() => {
+                    this.$emit("fetchData");
+                    this.$router.push({name: 'AdminProduct'})
+                  });
                 }).catch(err => console.log('err', err));
           }
         },

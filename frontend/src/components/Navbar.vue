@@ -52,24 +52,23 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <router-link class="dropdown-item" v-if="role === 'customer'"  :to="{name : 'WishList'}" >Wunschliste</router-link>
-              <router-link class="dropdown-item" v-if="role === 'customer'"  :to="{name : 'AddressUpdate'}" >Addresse</router-link>
               <router-link class="dropdown-item" v-if="token" :to="{name : 'OrderHistory'}" >Bestellungen</router-link>
-              <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Einloggen</router-link>
-              <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signup'}">Registrieren</router-link>
-              <router-link class="dropdown-item" v-if="role === 'storehouse'" :to="{name: 'Signup'}">Mitarbeiter</router-link>
+              <router-link class="dropdown-item" v-if="!token" :to="{name: 'SignIn'}">Einloggen</router-link>
+              <router-link class="dropdown-item" v-if="!token" :to="{name: 'SignUp'}">Registrieren</router-link>
+              <router-link class="dropdown-item" v-if="role === 'storehouse'" :to="{name: 'SignUp'}">Mitarbeiter</router-link>
               <a class="dropdown-item" v-if="token" href="#" @click="signout">Abmelden</a>
             </div>
           </li>
-        <div v-if="role !== 'storehouse'">
-        <li class="nav-item">
-          <div id="cart" style="position:relative; margin-top: 10%; margin-left: 20%">
-            <span id="nav-cart-count">{{ cartCount }}</span>
-            <router-link class="text-light" :to="{ name: 'Cart' }">
-              <i class="fa fa-shopping-cart" style="font-size:36px"></i>
-            </router-link>
+          <div v-if="role !== 'storehouse'">
+            <li class="nav-item">
+              <div id="cart" style="position: relative;  margin-left: 35px;"> <!-- Hier habe ich margin-left geändert -->
+                <span id="nav-cart-count">{{ cartCount }}</span>
+                <router-link class="text-light" :to="{ name: 'Cart' }">
+                  <i class="fa fa-shopping-cart" style="font-size: 36px;"></i>
+                </router-link>
+              </div>
+            </li>
           </div>
-        </li>
-        </div>
         <div v-else style="margin-right: 75px"></div>
       </ul>
       </div>
@@ -97,7 +96,7 @@
         icon: "success",
           }).then(() => {
           this.$emit("resetCartCount");
-          this.$router.push({ name: "Signin" });
+          this.$router.push({ name: "SignIn" });
         }).catch((err) => console.log("err", err));
       },
     },

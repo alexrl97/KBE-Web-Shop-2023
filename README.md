@@ -1,4 +1,8 @@
-# KBE Web Shop 2023 
+# KBE Web Shop 2023 - Yu-Gi-OH Card Shop
+
+## Preview
+
+![](https://s11.gifyu.com/images/S4hs7.gif)
 
 ## Project setup
 
@@ -41,17 +45,30 @@ npm install
 ```
 npm run serve
 ```
-###
-### Required
-#####
 
-##### - Docker
-##### - Vue
-##### - Node.js
+#
+### Sample Data: Getting started
+###
+#### Add customer and storehouse user
+To get the web shop running and test the order and shipping functionality the users need to be created
+in the frontend. Then the role of one user needs to be changed to 'storehouse' in the MySQL database. 
+More storehouse users can be added in the frontend using the new storehouse user account.
+
+#### Add categories and products
+You can either use the add functions for categories and products logging in with the storehouse user or
+use the token of the storehouse user available in the tokens table
+to add sample data for categories and products in the swagger UI. 
+Add the categories first since a category is mandatory to add a product.
 
 #
 ### URL's
 #### Swagger UI: http://localhost:8080/swagger-ui.html
 #### Frontend: http://localhost:8081/
 ###
-
+###
+### Required
+#####
+##### - Docker
+##### - MySQL
+##### - Vue
+##### - Node.js

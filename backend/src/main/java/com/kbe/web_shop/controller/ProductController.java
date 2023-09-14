@@ -51,9 +51,8 @@ public class ProductController {
     }
 
 
-
     @PostMapping("/update/{productId}")
-    public ResponseEntity<ApiResponse> updateProduct(@RequestParam("token") String token, @PathVariable("productId") @RequestBody ProductDto productDto) {
+    public ResponseEntity<ApiResponse> updateProduct(@RequestParam("token") String token, @RequestBody ProductDto productDto) {
         if(authenticationService.hasEditPermission(token)) {
             Optional<Category> optionalCategory = categoryRepo.findById(productDto.getCategoryId());
             if (!optionalCategory.isPresent()) {

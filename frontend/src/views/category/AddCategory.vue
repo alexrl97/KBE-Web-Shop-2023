@@ -62,8 +62,11 @@ export default {
       })
         .then(() => {
           sweetalert({
-            text: "Category added successfully",
+            text: "Kartentyp hinzugefügt",
             icon: "success",
+          }).then(() => {
+            this.$emit("fetchData");
+            this.$router.push({name: 'AdminCategory'})
           });
         })
         .catch((err) => {

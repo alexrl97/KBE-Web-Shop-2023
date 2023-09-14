@@ -22,35 +22,20 @@ public class CartConsumer {
     public void consumeAddToCartMessage(String message) {
         LOGGER.info("Received add to cart message -> {}", message);
         CartDto cartDto = CartDto.fromJsonString(message);
-
-        try {
-            cartService.addToCart(cartDto);
-        } catch (Exception e) {
-            LOGGER.error("Error while processing add to cart message:", e);
-        }
+        cartService.addToCart(cartDto);
     }
 
     @RabbitListener(queues = {"${cart_delete_queue}"})
     public void consumeDeleteCartItemMessage(String message) {
         LOGGER.info("Received delete cart item message for cartItemId -> {}", message);
         CartDeleteItemDto cartDeleteItemDto = CartDeleteItemDto.fromJsonString(message);
-
-        try {
-            cartService.deleteCartItem(cartDeleteItemDto.getCardItemID(), cartDeleteItemDto.getUser());
-        } catch (Exception e) {
-            LOGGER.error("Error while processing delete cart item message:", e);
-        }
+        cartService.deleteCartItem(cartDeleteItemDto.getCardItemID(), cartDeleteItemDto.getUser());
     }
 
     @RabbitListener(queues = {"${cart_delete_all_queue}"})
     public void consumeDeleteAllCartItemsMessage(String message) {
         LOGGER.info("Received delete all cart items message for user -> {}", message);
         User user = User.fromJsonString(message);
-
-        try {
-            cartService.deleteUserCartItems(user);
-        } catch (Exception e) {
-            LOGGER.error("Error while processing delete all cart items message:", e);
-        }
+        cartService.deleteUserCartItems(user);
     }
 }

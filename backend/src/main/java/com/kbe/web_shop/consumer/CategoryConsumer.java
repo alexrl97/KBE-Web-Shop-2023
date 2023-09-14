@@ -20,35 +20,20 @@ public class CategoryConsumer {
     public void consumeCreateMessage(String message) {
         LOGGER.info(String.format("Received create message for category -> %s", message));
         Category category = Category.fromJsonString(message);
-
-        try {
-            categoryService.createCategory(category);
-        } catch (Exception e) {
-            LOGGER.error("Error while processing create category message:", e);
-        }
+        categoryService.createCategory(category);
     }
 
     @RabbitListener(queues = {"${category_update_queue}"})
     public void consumeUpdateMessage(String message) {
         LOGGER.info(String.format("Received update message for category -> %s", message));
         Category category = Category.fromJsonString(message);
-
-        try {
-            categoryService.editCategory(category.getId(), category);
-        } catch (Exception e) {
-            LOGGER.error("Error while processing update category message:", e);
-        }
+        categoryService.editCategory(category.getId(), category);
     }
 
     @RabbitListener(queues = {"${category_delete_queue}"})
     public void consumeDeleteMessage(String message) {
         LOGGER.info(String.format("Received delete message for category -> %s", message));
         int categoryId = Integer.parseInt(message);
-
-        try {
-            categoryService.deleteCategory(categoryId);
-        } catch (Exception e) {
-            LOGGER.error("Error while processing delete category message:", e);
-        }
+        categoryService.deleteCategory(categoryId);
     }
 }

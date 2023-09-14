@@ -69,7 +69,7 @@
           <br>{{this.country}}
         </p>
 
-        <router-link  class="btn btn-success mt-2" type="button" :to="{name : 'AddressUpdate'}">Aktualisieren</router-link>
+        <router-link  class="btn btn-success mt-2" type="button" :to="{name : 'EditAddress'}">Aktualisieren</router-link>
       </div>
 
       <!-- display the price -->

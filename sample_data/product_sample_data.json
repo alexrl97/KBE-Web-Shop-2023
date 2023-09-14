@@ -1,0 +1,452 @@
+[
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G001",
+    "description": "Eine zerbrechliche Elfe, die nicht sehr angriffsstark ist, dafür aber dank mystischer Kräfte über sehr gute Verteidigungsmöglichkeiten verfügt.",
+    "id": 1,
+    "imageURL": "https://i.ibb.co/LJpMfqw/1.webp",
+    "name": "Mystische Elfe",
+    "price": 1.59,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G002",
+    "description": "Ein verspielter kleiner Unterweltler, der in der Dunkelheit lauert, um einen ahnungslosen Feind anzugreifen.",
+    "id": 2,
+    "imageURL": "https://i.ibb.co/hsv64g5/2.webp",
+    "name": "Wilder Kobold",
+    "price": 1.75,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G003",
+    "description": "Ein Drache, der häufig Bergfestungen bewacht. Sein typischer Angriff ist ein weiter Sprung aus dem Nichts.",
+    "id": 3,
+    "imageURL": "https://i.ibb.co/HVfXL9Q/3.jpg",
+    "name": "Geflügelter Drache, Festungswächter #1",
+    "price": 0.84,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G004",
+    "description": "Ein Unterweltler mit dunklen Kräften, der seinen Gegner verwirrt. Unter den Monstern vom Typ Unterweltler gehört dieses Monster zu den mächtigsten.",
+    "id": 4,
+    "imageURL": "https://i.ibb.co/kxG7T8g/4.jpg",
+    "name": "Herbeigerufener Totenkopf",
+    "price": "01.01",
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G005",
+    "description": "Der ultimative Hexer im Hinblick auf Angriff und Verteidigung.",
+    "id": 5,
+    "imageURL": "https://i.ibb.co/hdMhbJ0/5.jpg",
+    "name": "Dunkler Magier",
+    "price": 2.55,
+    "rarity": "UR"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G006",
+    "description": "Ein Ritter, dessen Pferd schneller als der Wind ist. Mit seiner Kampfkraft muss man rechnen.",
+    "id": 6,
+    "imageURL": "https://i.ibb.co/r7SW6gz/6.jpg",
+    "name": "Gaia, zorniger Ritter",
+    "price": 0.86,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G007",
+    "description": "Ein böser Drache, der mit Hilfe dunkler Mächte machtvolle Attacken durchführt.",
+    "id": 7,
+    "imageURL": "https://i.ibb.co/swHD97M/7.webp",
+    "name": "Drachenfluch",
+    "price": 1.71,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G008",
+    "description": "Ein Elf, der gelernt hat, ein Schwert zu führen – er erstaunt seine Gegner mit blitzschnellen Angriffen.",
+    "id": 8,
+    "imageURL": "https://i.ibb.co/c3mjq11/8.webp",
+    "name": "Keltischer Wächter",
+    "price": 1.57,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G010",
+    "description": "Ein Schneewolf, der schön anzusehen, aber im Kampf absolut bösartig ist.",
+    "id": 9,
+    "imageURL": "https://i.ibb.co/YX07YDG/9.webp",
+    "name": "Silberfang",
+    "price": 1.37,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G011",
+    "description": "Ein Riesenkrieger aus Stein. Ein Schlag von dieser Kreatur erschüttert die Erde.",
+    "id": 10,
+    "imageURL": "https://i.ibb.co/5ksq6QW/10.webp",
+    "name": "Riesen-Steinsoldat",
+    "price": "01.07",
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G012",
+    "description": "Ein Drache, der durch Zauberei wiederbelebt wurde. Sein Atem ist stark ätzend.",
+    "id": 11,
+    "imageURL": "https://i.ibb.co/pLNyHhw/11.jpg",
+    "name": "Zombiedrache",
+    "price": 1.16,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G013",
+    "description": "Diese Fee herrscht über das Ende allen Lebens.",
+    "id": 12,
+    "imageURL": "https://i.ibb.co/4Yw91P9/12.webp",
+    "name": "Doma, Engel der Stille",
+    "price": 1.76,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G014",
+    "description": "Ein stiller tödlicher Krieger, der auf Attentate spezialisiert ist.",
+    "id": 13,
+    "imageURL": "https://i.ibb.co/MPXX7HY/13.webp",
+    "name": "Ansatsu",
+    "price": 1.68,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G015",
+    "description": "Diese Kreatur trägt einen nachtblauen Smoking und hat die Macht über die Dunkelheit.",
+    "id": 14,
+    "imageURL": "https://i.ibb.co/2ZLhkYM/14.webp",
+    "name": "Gewitztes Phantom",
+    "price": 1.74,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G016",
+    "description": "Dieses Monster wird durch die Fähigkeit, seine Arme mit den messerscharfen Krallen auszufahren, zu einem Furcht erregenden Gegner.",
+    "id": 15,
+    "imageURL": "https://i.ibb.co/8YwmXFG/15.webp",
+    "name": "Krallenstrecker",
+    "price": 1.77,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G017",
+    "description": "Nichts kann die verrückte Attacke dieser mächtigen Kreatur stoppen.",
+    "id": 16,
+    "imageURL": "https://i.ibb.co/rvhQM3h/16.webp",
+    "name": "Mystischer Clown",
+    "price": 1.17,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G018",
+    "description": "Ein FINSTERNIS Monster, das mit dieser Karte ausgerüstet wird, erhöht seine ATK um 400 Punkte und verringert seine DEF um 200 Punkte.",
+    "id": 17,
+    "imageURL": "https://i.ibb.co/98H5XY4/17.jpg",
+    "name": "Schwert der dunklen Zerstörung",
+    "price": 1.32,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G019",
+    "description": "Ein Monster vom Typ Hexer, das mit dieser Karte ausgerüstet wird, erhöht seine ATK und DEF um 300 Punkte.",
+    "id": 18,
+    "imageURL": "https://i.ibb.co/ctpLn8g/18.webp",
+    "name": "Buch der geheimen Künste",
+    "price": 0.99,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G020",
+    "description": "Zerstört alle Monster auf dem Spielfeld.",
+    "id": 19,
+    "imageURL": "https://i.ibb.co/1LdH9Gk/19.webp",
+    "name": "Schwarzes Loch",
+    "price": "01.08",
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G021",
+    "description": "Erhöht deine Life Points um 1000 Punkte.",
+    "id": 20,
+    "imageURL": "https://i.ibb.co/2q1JMNZ/20.webp",
+    "name": "Dian Keto, Meisterheiler",
+    "price": 1.72,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G022",
+    "description": "Dieser Elf lebt angeblich schon seit Tausenden von Jahren. Er führt eine Armee von Geistern gegen seine Feinde.",
+    "id": 21,
+    "imageURL": "https://i.ibb.co/2nVz3xs/21.webp",
+    "name": "Antiker Elf",
+    "price": 1.48,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G023",
+    "description": "Diese Kreatur spricht einen Fluch des Schreckens und der Verwirrung aus, bevor sie ihre Feinde attackiert.",
+    "id": 22,
+    "imageURL": "https://i.ibb.co/yW4FrS8/22.webp",
+    "name": "Magischer Geist",
+    "price": "01.09",
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G024",
+    "description": "SDY: Zerstört das offen liegende Monster mit der niedrigsten ATK, das dein Gegner kontrolliert.\nDB1: Zerstöre 1 offenes Monster auf der Spielfeldseite deines Gegners mit der niedrigsten ATK. (Der Text wurde mit späteren Editionen geändert)",
+    "id": 23,
+    "imageURL": "https://i.ibb.co/xD35vBb/23.jpg",
+    "name": "Spalt",
+    "price": "01.01",
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 3,
+    "deckCardId": "SDY-G025",
+    "description": "Wenn dein Gegner 1 Monster mit 1000 oder mehr ATK als Normal- oder Flippbeschwörung beschwört: Wähle das Monster; zerstöre das gewählte Ziel.",
+    "id": 24,
+    "imageURL": "https://i.ibb.co/0j3BbVq/24.jpg",
+    "name": "Fallgrube",
+    "price": 1.33,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 3,
+    "deckCardId": "SDY-G026",
+    "description": "Wähle 2 Monster, die du kontrollierst und 1 Monster, das dein Gegner kontrolliert, zerstöre sie.",
+    "id": 25,
+    "imageURL": "https://i.ibb.co/D4JZRMT/25.webp",
+    "name": "Zweiklauen-Angriff",
+    "price": 1.21,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G027",
+    "description": "Zerstöre eine Zauberkarte auf dem Spielfeld. Wenn das Ziel dieser Karte verdeckt ist, decke die entsprechende Karte auf. Ist die Karte eine Zauberkarte, wird sie zerstört. Ist dies nicht der Fall, wird sie wieder umgedreht.",
+    "id": 26,
+    "imageURL": "https://i.ibb.co/37R9F6c/26.webp",
+    "name": "Fluchzerstörer",
+    "price": 1.6,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G028",
+    "description": "Beschwöre 1 Monster von einem beliebigen Friedhof als Spezialbeschwörung auf deine Spielfeldseite.",
+    "id": 27,
+    "imageURL": "https://i.ibb.co/rv2hJpD/27.webp",
+    "name": "Wiedergeburt",
+    "price": 1.22,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 3,
+    "deckCardId": "SDY-G029",
+    "description": "Erhöht im Spielzug, in dem die Karte aktiviert wird, die ATK eines ausgewählten Monsters um 500 Punkte.",
+    "id": 28,
+    "imageURL": "https://i.ibb.co/0tSkc1H/28.jpg",
+    "name": "Verstärkungen",
+    "price": 1.73,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G030",
+    "description": "Wähle 1 Monster, das dein Gegner kontrolliert; übernimm bis zur End Phase die Kontrolle darüber.",
+    "id": 29,
+    "imageURL": "https://i.ibb.co/Pc0rsYf/29.jpg",
+    "name": "Überläufer",
+    "price": 1.51,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G031",
+    "description": "FLIPP: Zeige alle verdeckten Karten auf dem Spielfeld vor (Flippeffekte werden nicht aktiviert), dann lege sie in ihre originalen Positionen zurück.",
+    "id": 30,
+    "imageURL": "https://i.ibb.co/fp5gntW/30.webp",
+    "name": "Strenger Mystiker",
+    "price": 1.47,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G032",
+    "description": "Falls diese Karte von einem Monster angegriffen wird, nach der Schadensberechnung: Gib das Monster auf die Hand zurück.",
+    "id": 31,
+    "imageURL": "https://i.ibb.co/8KJn58M/31.webp",
+    "name": "Wand der Illusionen",
+    "price": 1.31,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G033",
+    "description": "Ein Aristokrat, dessen Schwert von einem bösen Geist besessen ist, der sich die Schwachen als Opfer sucht.",
+    "id": 32,
+    "imageURL": "https://i.ibb.co/2gGBbBT/32.webp",
+    "name": "Baron des Schwerts der Unterwelt",
+    "price": "01.07",
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G034",
+    "description": "Ein Sklave der Schwarzen Kunst, der Meister im Aussprechen von lebenszerstörenden Zaubersprüchen ist.",
+    "id": 33,
+    "imageURL": "https://i.ibb.co/TrchJ2q/33.webp",
+    "name": "Zauberer der Verdammten",
+    "price": 1.39,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G035",
+    "description": "Falls ein Monster auf deiner Spielfeldseite auf deinen Friedhof gelegt wird in diesem Spielzug, kannst du 1 Monster, mit einer ATK von 1500 oder weniger, als Spezialbeschwörung, einmal in diesem Spielzug, aus deinem Deck beschwören.",
+    "id": 34,
+    "imageURL": "https://i.ibb.co/hLq5SKv/34.webp",
+    "name": "Letzter Wille",
+    "price": 1.56,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 3,
+    "deckCardId": "SDY-G036",
+    "description": "Du erhältst in diesem Spielzug keinen Kampfschaden von Monstern deines Gegners. Deine Monster können in diesem Spielzug nicht durch Kampf zerstört werden.",
+    "id": 35,
+    "imageURL": "https://i.ibb.co/cyXPM6c/35.webp",
+    "name": "Waboku",
+    "price": "01.01",
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G037",
+    "description": "Wähle 1 Monster, das dein Gegner kontrolliert; falls du in diesem Spielzug ein Monster als Tribut anbietest, musst du das gewählte Monster als Tribut anbieten, als ob du es kontrollieren würdest.",
+    "id": 36,
+    "imageURL": "https://i.ibb.co/kHxR7hH/36.webp",
+    "name": "Seelentausch",
+    "price": 1.71,
+    "rarity": "SR"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G038",
+    "description": "Jeder Spieler wirft seine ganze Hand ab und zieht dieselbe Anzahl Karten, die er abgeworfen hat.",
+    "id": 37,
+    "imageURL": "https://i.ibb.co/DKTbKWk/37.webp",
+    "name": "Kartenzerstörung",
+    "price": 0.91,
+    "rarity": "SR"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G039",
+    "description": "FLIPP: Zerstöre eine Fallenkarte auf dem Spielfeld. Wenn das Ziel dieser Karte verdeckt ist, decke die entsprechende Karte auf. Ist die Karte eine Fallenkarte, wird sie zerstört. Ist dies nicht der Fall, wird sie wieder umgedreht.",
+    "id": 38,
+    "imageURL": "https://i.ibb.co/7QztXPg/38.jpg",
+    "name": "Fallenmeister",
+    "price": 1.54,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 3,
+    "deckCardId": "SDY-G040",
+    "description": "Ändere alle offenen Monster vom Typ Drache auf dem Spielfeld in die Verteidigungsposition und sie können ihre Kampfpositionen nicht ändern.",
+    "id": 39,
+    "imageURL": "https://i.ibb.co/QrRbDdP/39.jpg",
+    "name": "Drachenfanggefäß",
+    "price": "01.07",
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G041",
+    "description": "Erhöht ATK und DEF aller Monster vom Typ Unterweltler und Hexer um 200 Punkte. Verringert ATK und DEF aller Monster vom Typ Fee um 200 Punkte.",
+    "id": 40,
+    "imageURL": "https://i.ibb.co/Bww5V4s/40.webp",
+    "name": "Yami",
+    "price": 1.12,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 1,
+    "deckCardId": "SDY-G042",
+    "description": "FLIPP: Wähle 1 Monster auf dem Spielfeld; zerstöre das gewählte Ziel.",
+    "id": 41,
+    "imageURL": "https://i.ibb.co/Hz1pqXr/41.jpg",
+    "name": "Menschenfresserkäfer",
+    "price": 1.77,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 3,
+    "deckCardId": "SDY-G043",
+    "description": "Alle Erhöhungen und Verminderungen von ATK und DEF werden für die Dauer des Spielzug, in dem diese Karte aktiviert ist, zurückgesetzt",
+    "id": 42,
+    "imageURL": "https://i.ibb.co/H4W4qcL/42.webp",
+    "name": "Falle umkehren",
+    "price": 1.52,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 2,
+    "deckCardId": "SDY-G044",
+    "description": "Zerstöre eine Fallenkarte, die offen auf dem Spielfeld liegt.",
+    "id": 43,
+    "imageURL": "https://i.ibb.co/5M7fm73/Falle-entfernen.webp",
+    "name": "Falle entfernen",
+    "price": "01.06",
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 3,
+    "deckCardId": "SDY-G045",
+    "description": "Erhöht im Spielzug, in dem die Karte aktiviert wird, die DEF eines ausgewählten Monsters um 500 Punkte.",
+    "id": 44,
+    "imageURL": "https://i.ibb.co/NZd3Jw5/44.webp",
+    "name": "Burgmauern",
+    "price": 0.87,
+    "rarity": "Normal"
+  },
+  {
+    "categoryId": 3,
+    "deckCardId": "SDY-G046",
+    "description": "Während deiner Main Phase oder der Battle Phase deines Gegners: Du kannst 500 Life Points zahlen; beschwöre oder setze 1 zusätzliches Monster als Normalbeschwörung.",
+    "id": 45,
+    "imageURL": "https://i.ibb.co/6sCq2Ky/45.webp",
+    "name": "Letztes Angebot",
+    "price": 0.92,
+    "rarity": "Normal"
+  }
+]

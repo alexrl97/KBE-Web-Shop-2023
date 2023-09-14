@@ -68,11 +68,13 @@
 
                 axios.post(this.baseURL+"product/add?token="+this.token, newProduct)
                 .then(() => {
-                    this.$router.push({name: 'AdminProduct'});
                     swal({
-                        text: "Product added",
+                        text: "Produkt hinzugeügt",
                         icon: "success"
-                    })
+                    }).then(() => {
+                      this.$emit("fetchData");
+                      this.$router.push({name: 'AdminProduct'});
+                    });
                 }).catch((err)=> {
                     console.log("err", err);
                 })

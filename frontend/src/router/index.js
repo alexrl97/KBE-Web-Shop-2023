@@ -1,23 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/HomeView.vue';
-import AddCategory from '../views/Category/AddCategory';
-import Category from '../views/Category/Category';
-import Product from '../views/Product/Product';
-import AddProduct from '../views/Product/AddProduct';
-import EditCategory from '../views/Category/EditCategory';
-import EditProduct from '../views/Product/EditProduct';
-import ShowDetails from '../views/Product/ShowDetails';
-import ListProducts from '../views/Category/ListProducts';
-import WishList from '../views/Product/WishList';
-import Signup from '../views/Signup';
-import Signin from '../views/Signin';
+import AddCategory from '../views/category/AddCategory';
+import Category from '../views/category/Category';
+import Product from '../views/product/Product';
+import AddProduct from '../views/product/AddProduct';
+import EditCategory from '../views/category/EditCategory';
+import EditProduct from '../views/product/EditProduct';
+import ShowDetails from '../views/product/ShowDetails';
+import ListProducts from '../views/category/ListProducts';
+import WishList from '../views/product/WishList';
+import Signup from '../views/user/SignUp';
+import Signin from '../views/user/SignIn';
 import Cart from '../views/cart/Cart';
 import Success from '../views/payment/Success';
 import Failed from '../views/payment/Failed';
-import Checkout from '../views/Checkout/Checkout';
+import Checkout from '../views/checkout/Checkout';
 import OrderHistory from "../views/order/OrderHistory";
 import OrderDetails from "../views/order/OrderDetails";
-import AddressUpdate from "@/views/address/AddressUpdate";
+import EditAddress from "../views/address/EditAddress";
 
 const routes = [
   {
@@ -119,8 +119,8 @@ const routes = [
   },
   {
     path:'/address',
-    name:'AddressUpdate',
-    component: AddressUpdate
+    name:'EditAddress',
+    component: EditAddress
   }
 
 ]

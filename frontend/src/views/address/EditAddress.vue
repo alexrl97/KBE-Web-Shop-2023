@@ -175,6 +175,8 @@ export default {
             swal({
               text: "Addresse aktualisiert",
               icon: "success"
+            }).then(() => {
+              this.$router.push({name: 'Cart'})
             })
           }).catch(err => console.log('err', err));
     },

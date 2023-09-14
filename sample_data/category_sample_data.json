@@ -1,0 +1,20 @@
+[
+    {
+        "categoryName": "Monsterkarten",
+        "description": "Monsterkarten werden zum Kämpfen verwendet und um deinen Gegner zu besiegen. Kämpfe zwischen Monsterkarten sind die Grundlage jedes Duells",
+        "id": 1,
+        "imageUrl": "https://i.ibb.co/B4mQ0bn/blank-by-rosatmaker-dem3xh5-414w-2x.webp"
+    },
+    {
+        "categoryName": "Zauberkarten",
+        "description": "Zauberkarten können normalerweise nur während deiner Main Phase aktiviert werden und helfen dir mit verschiedenen Effekten weiter.",
+        "id": 2,
+        "imageUrl": "https://i.ibb.co/b2qgCmg/blank-by-rosatmaker-dem3xlg-414w-2x.webp"
+    },
+    {
+        "categoryName": "Fallenkarten",
+        "description": "Fallenkarten werden dir mit verschiedenen Effekten weiterhelfen, genau wie Zauberkarten. Der große Unterschied zwischen ihnen ist, dass du Fallenkarten während des Spielzugs deines Gegners aktivieren kannst. ",
+        "id": 3,
+        "imageUrl": "https://i.ibb.co/ZmZHmXM/card-blank-by-rosatmaker-dem3xmc-pre.webp"
+    }
+]

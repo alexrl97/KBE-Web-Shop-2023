@@ -52,12 +52,13 @@
                 await axios.post(`${this.baseURL}category/update/${this.id}?token=${this.token}`,
                     this.category)
                 .then(() => {
-                    this.$emit("fetchData");
-                    this.$router.push({name: 'Category'})
                     swal({
-                        text: "category has been updated successfully",
+                        text: "Kartentyp aktualisiert",
                         icon: "success"
-                    })
+                    }).then(() => {
+                      this.$emit("fetchData");
+                      this.$router.push({name: 'AdminCategory'})
+                    });
                 }).catch(err => console.log('err', err));
             },
             async deleteCategory() {
@@ -66,12 +67,13 @@
               await axios.delete(`${this.baseURL}category/delete/${this.id}?token=${this.token}`,
                   this.category)
                   .then(() => {
-                    this.$emit("fetchData");
-                    this.$router.push({name: 'AdminCategory'})
                     swal({
-                      text: "category has been deleted successfully",
+                      text: "Kartentyp gelöscht",
                       icon: "success"
-                    })
+                    }).then(() => {
+                      this.$emit("fetchData");
+                      this.$router.push({name: 'AdminCategory'})
+                    });
                   }).catch(err => console.log('err', err));
             }
         },

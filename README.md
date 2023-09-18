@@ -1,4 +1,4 @@
-# KBE Web Shop 2023 - Yu-Gi-OH Card Shop
+# KBE Web Shop 2023 - Yu-Gi-Oh! Card Shop
 
 ## Preview: Cart, Address, Order, Pay & Send Features
 

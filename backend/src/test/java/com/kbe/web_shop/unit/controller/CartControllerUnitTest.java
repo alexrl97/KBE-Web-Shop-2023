@@ -1,12 +1,10 @@
 package com.kbe.web_shop.unit.controller;
 
-import com.kbe.web_shop.common.ApiResponse;
+import com.kbe.web_shop.config.common.ApiResponse;
 import com.kbe.web_shop.controller.CartController;
-import com.kbe.web_shop.dto.cart.CartDeleteItemDto;
 import com.kbe.web_shop.dto.cart.CartDto;
 import com.kbe.web_shop.dto.cart.CartListDto;
 import com.kbe.web_shop.exception.AuthenticationFailException;
-import com.kbe.web_shop.exception.ProductNotExistsException;
 import com.kbe.web_shop.model.User;
 import com.kbe.web_shop.producer.CartProducer;
 import com.kbe.web_shop.service.AuthenticationService;

@@ -1,6 +1,6 @@
 package com.kbe.web_shop.integration.controller;
 
-import com.kbe.web_shop.common.ApiResponse;
+import com.kbe.web_shop.config.common.ApiResponse;
 import com.kbe.web_shop.config.constants.Role;
 import com.kbe.web_shop.controller.OrderController;
 import com.kbe.web_shop.dto.cart.CartDto;
@@ -16,7 +16,6 @@ import com.kbe.web_shop.service.AuthenticationService;
 import com.kbe.web_shop.service.CartService;
 import com.kbe.web_shop.service.OrderService;
 import com.stripe.exception.StripeException;
-import com.stripe.model.checkout.Session;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

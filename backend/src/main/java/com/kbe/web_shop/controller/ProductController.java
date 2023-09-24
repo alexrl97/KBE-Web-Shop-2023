@@ -1,6 +1,6 @@
 package com.kbe.web_shop.controller;
 
-import com.kbe.web_shop.common.ApiResponse;
+import com.kbe.web_shop.config.common.ApiResponse;
 import com.kbe.web_shop.dto.product.ProductDto;
 import com.kbe.web_shop.model.Category;
 import com.kbe.web_shop.producer.ProductProducer;

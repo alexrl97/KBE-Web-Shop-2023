@@ -1,9 +1,7 @@
 package com.kbe.web_shop.unit.controller;
 
 import com.kbe.web_shop.controller.WishListController;
-import com.kbe.web_shop.common.ApiResponse;
-import com.kbe.web_shop.dto.product.ProductDto;
-import com.kbe.web_shop.dto.wishList.WishListDeleteDto;
+import com.kbe.web_shop.config.common.ApiResponse;
 import com.kbe.web_shop.model.Product;
 import com.kbe.web_shop.model.User;
 import com.kbe.web_shop.model.WishList;

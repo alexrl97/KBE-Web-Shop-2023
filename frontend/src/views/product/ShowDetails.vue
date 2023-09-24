@@ -103,12 +103,13 @@ export default {
           quantity: this.quantity,
         })
         .then((res) => {
-          if (res.status == 201) {
+          if (res.status === 201) {
             swal({
               text: "Karte dem Warenkorb hinzugefügt",
               icon: "success",
             }).then(() => {
               this.$emit("fetchData");
+              //this.$router.go(0);
             });
           }
         })

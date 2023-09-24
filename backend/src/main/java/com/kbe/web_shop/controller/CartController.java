@@ -1,11 +1,9 @@
 package com.kbe.web_shop.controller;
 
-import com.kbe.web_shop.common.ApiResponse;
+import com.kbe.web_shop.config.common.ApiResponse;
 import com.kbe.web_shop.dto.cart.CartDeleteItemDto;
 import com.kbe.web_shop.dto.cart.CartDto;
 import com.kbe.web_shop.dto.cart.CartListDto;
-import com.kbe.web_shop.exception.AuthenticationFailException;
-import com.kbe.web_shop.exception.ProductNotExistsException;
 import com.kbe.web_shop.model.User;
 import com.kbe.web_shop.producer.CartProducer;
 import com.kbe.web_shop.service.AuthenticationService;
@@ -15,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/cart")

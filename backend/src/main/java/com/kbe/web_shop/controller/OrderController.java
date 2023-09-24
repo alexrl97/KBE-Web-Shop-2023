@@ -1,6 +1,6 @@
 package com.kbe.web_shop.controller;
 
-import com.kbe.web_shop.common.ApiResponse;
+import com.kbe.web_shop.config.common.ApiResponse;
 import com.kbe.web_shop.dto.checkout.CheckoutItemDto;
 import com.kbe.web_shop.dto.checkout.StripeResponse;
 import com.kbe.web_shop.dto.order.OrderCreateDto;
@@ -14,8 +14,6 @@ import com.kbe.web_shop.service.AuthenticationService;
 import com.kbe.web_shop.service.OrderService;
 import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -9,8 +9,8 @@ import EditProduct from '../views/product/EditProduct';
 import ShowDetails from '../views/product/ShowDetails';
 import ListProducts from '../views/category/ListProducts';
 import WishList from '../views/product/WishList';
-import Signup from '../views/user/SignUp';
-import Signin from '../views/user/SignIn';
+import SignUp from '../views/user/SignUp';
+import SignIn from '../views/user/SignIn';
 import Cart from '../views/cart/Cart';
 import Success from '../views/payment/Success';
 import Failed from '../views/payment/Failed';
@@ -71,14 +71,14 @@ const routes = [
   },
 
   {
-    path: '/signup',
-    name: 'Signup',
-    component: Signup,
+    path: '/signUp',
+    name: 'SignUp',
+    component: SignUp,
   },
   {
-    path: '/signin',
-    name: 'Signin',
-    component: Signin,
+    path: '/signIn',
+    name: 'SignIn',
+    component: SignIn,
   },
   {
     path: '/wishlist',

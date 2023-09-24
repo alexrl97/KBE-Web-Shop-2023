@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.kbe.web_shop.config</OriginalElement>
+  <nodes>
+    <node x="-1157.01160141351" y="-963.1731095688652">com.kbe.web_shop.exception.ExceptionControllerAdvice</node>
+    <node x="-1400.597856163699" y="1218.4375367091027">com.kbe.web_shop.model.Category</node>
+    <node x="548.9778311115132" y="3757.147323430848">com.kbe.web_shop.repository.WishListRepo</node>
+    <node x="197.74716283705538" y="818.0941478000171">com.kbe.web_shop.service.CartService</node>
+    <node x="565.333417587244" y="-361.98833532394474">com.kbe.web_shop.repository.AddressRepo</node>
+    <node x="-471.3309885679032" y="-2048.1151922134936">com.kbe.web_shop.config.RabbitMQConfig</node>
+    <node x="-1042.01160141351" y="3267.0053660864987">com.kbe.web_shop.controller.UserController</node>
+    <node x="-260.8390919131332" y="458.15362202040455">com.kbe.web_shop.consumer.AuthenticationConsumer</node>
+    <node x="163.74716283705538" y="3267.0053660864987">com.kbe.web_shop.service.UserService</node>
+    <node x="154.74716283705538" y="1576.5794940534518">com.kbe.web_shop.service.OrderService</node>
+    <node x="-1388.097856163699" y="2666.8634087421497">com.kbe.web_shop.model.Product</node>
+    <node x="-1385.097856163699" y="2242.7214513978006">com.kbe.web_shop.model.OrderItem</node>
+    <node x="-1699.097856163699" y="1605.5794940534518">com.kbe.web_shop.dto.order</node>
+    <node x="-1386.597856163699" y="-639.1151922134933">com.kbe.web_shop.utils.Helper</node>
+    <node x="557.290368207236" y="1576.5794940534518">com.kbe.web_shop.repository.OrderRepo</node>
+    <node x="199.24716283705538" y="623.1536220204046">com.kbe.web_shop.exception.AuthenticationFailException</node>
+    <node x="-1721.097856163699" y="1576.5794940534518">com.kbe.web_shop.dto.checkout</node>
+    <node x="-620.4253466633218" y="1576.5794940534518">com.kbe.web_shop.producer.OrderProducer</node>
+    <node x="204.74716283705538" y="1939.5794940534518">com.kbe.web_shop.exception.OrderNotFoundException</node>
+    <node x="153.24716283705538" y="458.15362202040455">com.kbe.web_shop.service.AuthenticationService</node>
+    <node x="-1056.51160141351" y="-1020.6875889077082">com.kbe.web_shop.config.common</node>
+    <node x="-1687.097856163699" y="2666.8634087421497">com.kbe.web_shop.dto.product</node>
+    <node x="-1398.597856163699" y="3757.147323430848">com.kbe.web_shop.model.WishList</node>
+    <node x="-611.4253466633218" y="3757.147323430848">com.kbe.web_shop.producer.WishListProducer</node>
+    <node x="643.4778311115132" y="3267.0053660864987">com.kbe.web_shop.repository.UserRepo</node>
+    <node x="655.790368207236" y="2245.5881161801667">com.kbe.web_shop.repository.OrderItemsRepo</node>
+    <node x="175.74716283705538" y="2666.8634087421497">com.kbe.web_shop.service.ProductService</node>
+    <node x="-1113.5116014135103" y="1218.4375367091027">com.kbe.web_shop.controller.CategoryController</node>
+    <node x="-1415.097856163699" y="1576.5794940534518">com.kbe.web_shop.model.Order</node>
+    <node x="561.790368207236" y="818.0941478000171">com.kbe.web_shop.repository.CartRepo</node>
+    <node x="-983.0116014135103" y="-639.1151922134933">com.kbe.web_shop.config.SwaggerConfig</node>
+    <node x="-1695.597856163699" y="3757.147323430848">com.kbe.web_shop.dto.wishList</node>
+    <node x="141.74716283705538" y="-361.98833532394474">com.kbe.web_shop.service.AddressService</node>
+    <node x="-227.8390919131332" y="-361.98833532394474">com.kbe.web_shop.consumer.AddressConsumer</node>
+    <node x="202.24716283705538" y="2853.8634087421497">com.kbe.web_shop.exception.ProductNotExistsException</node>
+    <node x="665.4778311115132" y="2666.8634087421497">com.kbe.web_shop.repository.ProductRepo</node>
+    <node x="-671.4253466633218" y="458.15362202040455">com.kbe.web_shop.producer.AuthenticationProducer</node>
+    <node x="-1664.597856163699" y="3267.0053660864987">com.kbe.web_shop.dto.user</node>
+    <node x="-1385.097856163699" y="816.2955793647536">com.kbe.web_shop.model.Cart</node>
+    <node x="601.290368207236" y="458.15362202040455">com.kbe.web_shop.repository.TokenRepo</node>
+    <node x="-207.774795067529" y="3757.147323430848">com.kbe.web_shop.consumer.WishListConsumer</node>
+    <node x="-596.4253466633218" y="2666.8634087421497">com.kbe.web_shop.producer.ProductProducer</node>
+    <node x="-1056.51160141351" y="-1078.2020682465513">com.kbe.web_shop.dto.response</node>
+    <node x="-1024.51160141351" y="-779.1441508911793">com.kbe.web_shop.config.Webconfig</node>
+    <node x="470.7471628370554" y="1835.4998904311346">com.kbe.web_shop.exception.CustomException</node>
+    <node x="-589.9253466633218" y="1218.4375367091027">com.kbe.web_shop.producer.CategoryProducer</node>
+    <node x="-1431.097856163699" y="458.15362202040455">com.kbe.web_shop.model.AuthenticationToken</node>
+    <node x="-1094.0116014135103" y="816.2955793647536">com.kbe.web_shop.controller.CartController</node>
+    <node x="-210.774795067529" y="2666.8634087421497">com.kbe.web_shop.consumer.ProductConsumer</node>
+    <node x="180.24716283705538" y="3757.147323430848">com.kbe.web_shop.service.WishListService</node>
+    <node x="-221.8390919131332" y="1576.5794940534518">com.kbe.web_shop.consumer.OrderConsumer</node>
+    <node x="-1099.0116014135103" y="-361.98833532394474">com.kbe.web_shop.controller.AddressController</node>
+    <node x="-238.3390919131332" y="816.2955793647536">com.kbe.web_shop.consumer.CartConsumer</node>
+    <node x="612.290368207236" y="1218.4375367091025">com.kbe.web_shop.repository.CategoryRepo</node>
+    <node x="-1398.597856163699" y="-361.9883353239446">com.kbe.web_shop.model.Address</node>
+    <node x="-1107.01160141351" y="2666.8634087421497">com.kbe.web_shop.controller.ProductController</node>
+    <node x="-1120.5116014135103" y="1576.5794940534518">com.kbe.web_shop.controller.OrderController</node>
+    <node x="-1452.597856163699" y="-722.7956844298761">com.kbe.web_shop.config.constants</node>
+    <node x="-1657.097856163699" y="816.2955793647536">com.kbe.web_shop.dto.cart</node>
+    <node x="189.74716283705538" y="1218.4375367091027">com.kbe.web_shop.service.CategoryService</node>
+    <node x="-603.9253466633218" y="3267.0053660864987">com.kbe.web_shop.producer.UserProducer</node>
+    <node x="-625.4253466633218" y="-361.9883353239447">com.kbe.web_shop.producer.AddressProducer</node>
+    <node x="-209.3390919131332" y="1218.4375367091027">com.kbe.web_shop.consumer.CategoryConsumer</node>
+    <node x="-219.274795067529" y="3267.0053660864987">com.kbe.web_shop.consumer.UserConsumer</node>
+    <node x="-1388.597856163699" y="3267.0053660864987">com.kbe.web_shop.model.User</node>
+    <node x="-1105.51160141351" y="3757.147323430848">com.kbe.web_shop.controller.WishListController</node>
+    <node x="-634.9253466633218" y="816.2955793647536">com.kbe.web_shop.producer.CartProducer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.kbe.web_shop.service.OrderService" target="com.kbe.web_shop.exception.OrderNotFoundException" relationship="CREATE">
+      <point x="-125.5" y="181.5" />
+      <point x="187.24716283705538" y="1957.0794940534518" />
+      <point x="-108.0" y="3.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.WishListController" target="com.kbe.web_shop.model.WishList" relationship="CREATE">
+      <point x="0.0" y="82.5" />
+      <point x="-903.0116014135101" y="3939.647323430848" />
+      <point x="109.0" y="23.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.OrderService" target="com.kbe.web_shop.model.Order" relationship="CREATE">
+      <point x="-158.0" y="146.9995059465482" />
+      <point x="125.5" y="14.999505946548197" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.WishListController" target="com.kbe.web_shop.service.WishListService" relationship="TO_ONE">
+      <point x="-3.985864898368163E-4" y="-82.50032343084786" />
+      <point x="-903.012" y="3735.0" />
+      <point x="312.747" y="3735.0" />
+      <point x="-1.628370553703462E-4" y="-71.50032343084786" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.CartService" target="com.kbe.web_shop.service.ProductService" relationship="TO_ONE">
+      <point x="-115.00016283705537" y="-1.4780001708913915E-4" />
+      <point x="113.0" y="900.594" />
+      <point x="113.0" y="2760.363" />
+      <point x="-137.00016283705537" y="-4.087421498297772E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.ProductController" target="com.kbe.web_shop.repository.CategoryRepo" relationship="TO_ONE">
+      <point x="-15.000398586489837" y="-104.50040874214983" />
+      <point x="-918.012" y="2047.0" />
+      <point x="524.0" y="2047.0" />
+      <point x="524.0" y="1245.438" />
+      <point x="-122.50036820723608" y="4.632908976418548E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.model.Product" target="com.kbe.web_shop.model.Category" relationship="TO_ONE">
+      <point x="-98.5" y="0.0" />
+      <point x="-1783.598" y="2947.3634087421497" />
+      <point x="-1783.598" y="1377.9375367091027" />
+      <point x="-111.0" y="0.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.model.Cart" target="com.kbe.web_shop.model.User" relationship="TO_ONE">
+      <point x="95.49985616369895" y="4.2063524642799166E-4" />
+      <point x="-1142.0" y="997.796" />
+      <point x="-1142.0" y="3492.505" />
+      <point x="98.99985616369895" y="-3.66086498615914E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.AddressController" target="com.kbe.web_shop.service.AuthenticationService" relationship="TO_ONE">
+      <point x="-3.9858648960944265E-4" y="71.50033532394474" />
+      <point x="-903.012" y="730.0" />
+      <point x="181.747" y="730.0" />
+      <point x="-131.00016283705537" y="82.50037797959544" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.UserService" target="com.kbe.web_shop.producer.AuthenticationProducer" relationship="TO_ONE">
+      <point x="149.0" y="44.999633913501384" />
+      <point x="993.478" y="3416.505" />
+      <point x="993.478" y="396.512" />
+      <point x="-467.42534666332176" y="396.512" />
+      <point x="0.0" y="-71.5" />
+    </edge>
+    <edge source="com.kbe.web_shop.consumer.ProductConsumer" target="com.kbe.web_shop.service.ProductService" relationship="TO_ONE">
+      <point x="-125.50020493247101" y="-4.087421498297772E-4" />
+      <point x="-245.0" y="2749.363" />
+      <point x="-245.0" y="2358.5" />
+      <point x="113.0" y="2358.5" />
+      <point x="113.0" y="2760.363" />
+      <point x="-137.00016283705537" y="-4.087421498297772E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.UserService" target="com.kbe.web_shop.exception.AuthenticationFailException" relationship="CREATE">
+      <point x="148.99983716294463" y="14.999633913501384" />
+      <point x="963.478" y="3386.505" />
+      <point x="963.478" y="721.0" />
+      <point x="442.0" y="721.0" />
+      <point x="442.0" y="646.5" />
+      <point x="113.49983716294463" y="8.846377979595445" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.WishListService" target="com.kbe.web_shop.repository.WishListRepo" relationship="TO_ONE">
+      <point x="132.5" y="-44.5" />
+      <point x="-183.5" y="0.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.CartController" target="com.kbe.web_shop.producer.CartProducer" relationship="TO_ONE">
+      <point x="190.9996014135104" y="-14.999579364753572" />
+      <point x="-676.0" y="894.796" />
+      <point x="-676.0" y="931.796" />
+      <point x="-167.4996533366782" y="4.2063524642799166E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.consumer.AuthenticationConsumer" target="com.kbe.web_shop.service.AuthenticationService" relationship="TO_ONE">
+      <point x="9.191313318979155E-5" y="49.50037797959544" />
+      <point x="-83.839" y="730.0" />
+      <point x="181.747" y="730.0" />
+      <point x="-131.00016283705537" y="82.50037797959544" />
+    </edge>
+    <edge source="com.kbe.web_shop.consumer.ProductConsumer" target="com.kbe.web_shop.repository.CategoryRepo" relationship="TO_ONE">
+      <point x="-2.0493247100716872E-4" y="-82.50040874214983" />
+      <point x="-85.275" y="2453.0" />
+      <point x="524.0" y="2453.0" />
+      <point x="524.0" y="1245.438" />
+      <point x="-122.50036820723608" y="4.632908976418548E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.OrderController" target="com.kbe.web_shop.producer.OrderProducer" relationship="TO_ONE">
+      <point x="217.5" y="14.999505946548197" />
+      <point x="-153.0" y="25.999505946548197" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.OrderService" target="com.kbe.web_shop.repository.OrderItemsRepo" relationship="TO_ONE">
+      <point x="158.0" y="109.92050594654825" />
+      <point x="734.790368207236" y="1868.0" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.ProductService" target="com.kbe.web_shop.repository.ProductRepo" relationship="TO_ONE">
+      <point x="137.0" y="-79.0" />
+      <point x="-67.0" y="0.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.model.Cart" target="com.kbe.web_shop.model.Product" relationship="TO_ONE">
+      <point x="-95.50014383630105" y="4.2063524642799166E-4" />
+      <point x="-1753.598" y="997.796" />
+      <point x="-1753.598" y="2250.221" />
+      <point x="-1402.598" y="2250.221" />
+      <point x="-1402.598" y="2224.0" />
+      <point x="-1163.098" y="2224.0" />
+      <point x="-1163.098" y="2947.363" />
+      <point x="98.49985616369895" y="-4.087421498297772E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.UserService" target="com.kbe.web_shop.model.AuthenticationToken" relationship="CREATE">
+      <point x="149.0" y="29.999633913501384" />
+      <point x="978.478" y="3401.505" />
+      <point x="978.478" y="-414.0" />
+      <point x="-1163.097856163699" y="-414.0" />
+      <point x="126.5" y="-159.5" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.UserController" target="com.kbe.web_shop.service.AuthenticationService" relationship="TO_ONE">
+      <point x="138.99960141351016" y="-3.66086498615914E-4" />
+      <point x="-660.0" y="3360.505" />
+      <point x="-660.0" y="730.0" />
+      <point x="181.747" y="730.0" />
+      <point x="-131.00016283705537" y="82.50037797959544" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.CartController" target="com.kbe.web_shop.service.ProductService" relationship="TO_ONE">
+      <point x="-3.9858648960944265E-4" y="93.50042063524643" />
+      <point x="-903.012" y="1171.796" />
+      <point x="-245.0" y="1171.796" />
+      <point x="-245.0" y="2358.5" />
+      <point x="113.0" y="2358.5" />
+      <point x="113.0" y="2760.363" />
+      <point x="-137.00016283705537" y="-4.087421498297772E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.WishListService" target="com.kbe.web_shop.service.ProductService" relationship="TO_ONE">
+      <point x="-132.50016283705537" y="-3.234308478567982E-4" />
+      <point x="113.0" y="3828.647" />
+      <point x="113.0" y="2760.363" />
+      <point x="-137.00016283705537" y="-4.087421498297772E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.consumer.WishListConsumer" target="com.kbe.web_shop.service.UserService" relationship="TO_ONE">
+      <point x="122.49979506752899" y="-3.234308478567982E-4" />
+      <point x="94.0" y="3828.647" />
+      <point x="94.0" y="3401.505" />
+      <point x="-149.00016283705537" y="29.999633913501384" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.ProductController" target="com.kbe.web_shop.service.ProductService" relationship="TO_ONE">
+      <point x="-3.985864898368163E-4" y="-104.50040874214983" />
+      <point x="-903.012" y="2453.0" />
+      <point x="-245.0" y="2453.0" />
+      <point x="-245.0" y="2358.5" />
+      <point x="113.0" y="2358.5" />
+      <point x="113.0" y="2760.363" />
+      <point x="-137.00016283705537" y="-4.087421498297772E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.WishListController" target="com.kbe.web_shop.service.AuthenticationService" relationship="TO_ONE">
+      <point x="202.49960141351016" y="-3.234308478567982E-4" />
+      <point x="-660.0" y="3839.647" />
+      <point x="-660.0" y="730.0" />
+      <point x="181.747" y="730.0" />
+      <point x="-131.00016283705537" y="82.50037797959544" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.OrderService" target="com.kbe.web_shop.service.AddressService" relationship="TO_ONE">
+      <point x="-158.00016283705537" y="-117.07949405345175" />
+      <point x="134.0" y="1641.0" />
+      <point x="134.0" y="440.654" />
+      <point x="312.747" y="440.654" />
+      <point x="-1.628370553703462E-4" y="60.50033532394474" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.CategoryService" target="com.kbe.web_shop.repository.CategoryRepo" relationship="TO_ONE">
+      <point x="122.99983716294463" y="4.6329089741448115E-4" />
+      <point x="524.0" y="1300.938" />
+      <point x="524.0" y="1245.438" />
+      <point x="-122.50036820723608" y="4.632908976418548E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.AddressController" target="com.kbe.web_shop.producer.AddressProducer" relationship="TO_ONE">
+      <point x="195.9996014135104" y="3.353239447392298E-4" />
+      <point x="-157.9996533366782" y="3.3532394468238635E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.consumer.CategoryConsumer" target="com.kbe.web_shop.service.CategoryService" relationship="TO_ONE">
+      <point x="9.191313318979155E-5" y="-71.49953670910259" />
+      <point x="-83.839" y="1196.0" />
+      <point x="312.747" y="1196.0" />
+      <point x="-1.628370553703462E-4" y="-82.49953670910259" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.OrderService" target="com.kbe.web_shop.service.CartService" relationship="TO_ONE">
+      <point x="-158.00016283705537" y="-4.940534518027562E-4" />
+      <point x="92.0" y="1758.079" />
+      <point x="92.0" y="885.594" />
+      <point x="-115.00016283705537" y="-15.00014780001709" />
+    </edge>
+    <edge source="com.kbe.web_shop.model.OrderItem" target="com.kbe.web_shop.model.Product" relationship="TO_ONE">
+      <point x="-1.438363010493049E-4" y="-192.5004513978006" />
+      <point x="-1289.598" y="2224.0" />
+      <point x="-1163.098" y="2224.0" />
+      <point x="-1163.098" y="2947.363" />
+      <point x="98.49985616369895" y="-4.087421498297772E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.AddressController" target="com.kbe.web_shop.repository.AddressRepo" relationship="TO_ONE">
+      <point x="-3.9858648960944265E-4" y="-71.49966467605526" />
+      <point x="-903.012" y="-384.0" />
+      <point x="735.333" y="-384.0" />
+      <point x="-4.175872439873274E-4" y="-26.99966467605526" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.CartService" target="com.kbe.web_shop.exception.CustomException" relationship="CREATE">
+      <point x="114.99983716294463" y="-1.4780001708913915E-4" />
+      <point x="490.0" y="900.594" />
+      <point x="490.0" y="1853.0" />
+      <point x="80.99960141351016" y="3.000109568865355" />
+    </edge>
+    <edge source="com.kbe.web_shop.model.Order" target="com.kbe.web_shop.model.Address" relationship="TO_ONE">
+      <point x="-125.5" y="0.0" />
+      <point x="-1813.598" y="1890.0794940534518" />
+      <point x="-1813.598" y="28.511664676055375" />
+      <point x="-109.0" y="0.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.model.WishList" target="com.kbe.web_shop.model.User" relationship="TO_ONE">
+      <point x="108.99985616369895" y="-3.234308478567982E-4" />
+      <point x="-1142.0" y="3916.647" />
+      <point x="-1142.0" y="3492.505" />
+      <point x="98.99985616369895" y="-3.66086498615914E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.UserController" target="com.kbe.web_shop.repository.UserRepo" relationship="TO_ONE">
+      <point x="-3.985864898368163E-4" y="93.49963391350138" />
+      <point x="-903.012" y="3499.0" />
+      <point x="732.478" y="3499.0" />
+      <point x="1.6888848676899215E-4" y="26.999633913501384" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.UserService" target="com.kbe.web_shop.exception.CustomException" relationship="CREATE">
+      <point x="-149.00016283705537" y="14.999633913501384" />
+      <point x="74.0" y="3386.505" />
+      <point x="74.0" y="3917.647" />
+      <point x="490.0" y="3917.647" />
+      <point x="490.0" y="1853.0" />
+      <point x="80.99960141351016" y="3.000109568865355" />
+    </edge>
+    <edge source="com.kbe.web_shop.model.Order" target="com.kbe.web_shop.model.User" relationship="TO_ONE">
+      <point x="125.49985616369895" y="-4.940534518027562E-4" />
+      <point x="-1142.0" y="1890.079" />
+      <point x="-1142.0" y="3492.505" />
+      <point x="98.99985616369895" y="-3.66086498615914E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.UserService" target="com.kbe.web_shop.repository.UserRepo" relationship="TO_ONE">
+      <point x="-1.628370553703462E-4" y="104.49963391350138" />
+      <point x="312.747" y="3499.0" />
+      <point x="732.478" y="3499.0" />
+      <point x="1.6888848676899215E-4" y="26.999633913501384" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.OrderService" target="com.kbe.web_shop.producer.CartProducer" relationship="TO_ONE">
+      <point x="-146.00016283705537" y="-181.5004940534518" />
+      <point x="166.747" y="1156.796" />
+      <point x="-676.0" y="1156.796" />
+      <point x="-676.0" y="931.796" />
+      <point x="-167.4996533366782" y="4.2063524642799166E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.CartService" target="com.kbe.web_shop.model.Cart" relationship="CREATE">
+      <point x="0.0" y="-82.5" />
+      <point x="312.7471628370554" y="769.6536220204046" />
+      <point x="-996.5116014135103" y="769.6536220204046" />
+      <point x="-996.5116014135103" y="798.796" />
+      <point x="-1289.597856163699" y="798.796" />
+      <point x="0.0" y="-181.5" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.WishListService" target="com.kbe.web_shop.exception.CustomException" relationship="CREATE">
+      <point x="-132.50016283705537" y="14.999676569152143" />
+      <point x="74.0" y="3843.647" />
+      <point x="74.0" y="3917.647" />
+      <point x="490.0" y="3917.647" />
+      <point x="490.0" y="1853.0" />
+      <point x="80.99960141351016" y="3.000109568865355" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.CartController" target="com.kbe.web_shop.service.CartService" relationship="TO_ONE">
+      <point x="-3.9858648960944265E-4" y="-93.49957936475357" />
+      <point x="-903.012" y="798.796" />
+      <point x="92.0" y="798.796" />
+      <point x="92.0" y="885.594" />
+      <point x="-115.00016283705537" y="-15.00014780001709" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.CartController" target="com.kbe.web_shop.service.AuthenticationService" relationship="TO_ONE">
+      <point x="190.9996014135104" y="4.2063524642799166E-4" />
+      <point x="-660.0" y="909.796" />
+      <point x="-660.0" y="730.0" />
+      <point x="181.747" y="730.0" />
+      <point x="-131.00016283705537" y="82.50037797959544" />
+    </edge>
+    <edge source="com.kbe.web_shop.consumer.AddressConsumer" target="com.kbe.web_shop.service.AddressService" relationship="TO_ONE">
+      <point x="9.191313318979155E-5" y="49.50033532394474" />
+      <point x="-83.839" y="411.512" />
+      <point x="134.0" y="411.512" />
+      <point x="134.0" y="440.654" />
+      <point x="312.747" y="440.654" />
+      <point x="-1.628370553703462E-4" y="60.50033532394474" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.OrderService" target="com.kbe.web_shop.repository.OrderRepo" relationship="TO_ONE">
+      <point x="158.0" y="-143.5" />
+      <point x="-177.5" y="0.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.CategoryController" target="com.kbe.web_shop.service.CategoryService" relationship="TO_ONE">
+      <point x="-3.9858648960944265E-4" y="-93.49953670910259" />
+      <point x="-903.012" y="1196.0" />
+      <point x="312.747" y="1196.0" />
+      <point x="-1.628370553703462E-4" y="-82.49953670910259" />
+    </edge>
+    <edge source="com.kbe.web_shop.model.WishList" target="com.kbe.web_shop.model.Product" relationship="TO_ONE">
+      <point x="108.99985616369895" y="-15.000323430847857" />
+      <point x="-1163.098" y="3901.647" />
+      <point x="-1163.098" y="2947.363" />
+      <point x="98.49985616369895" y="-4.087421498297772E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.CategoryController" target="com.kbe.web_shop.service.AuthenticationService" relationship="TO_ONE">
+      <point x="210.4996014135104" y="4.6329089741448115E-4" />
+      <point x="-660.0" y="1311.938" />
+      <point x="-660.0" y="730.0" />
+      <point x="181.747" y="730.0" />
+      <point x="-131.00016283705537" y="82.50037797959544" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.ProductController" target="com.kbe.web_shop.producer.ProductProducer" relationship="TO_ONE">
+      <point x="204.0" y="14.99959125785017" />
+      <point x="-129.0" y="3.9995912578501702" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.UserService" target="com.kbe.web_shop.service.AuthenticationService" relationship="TO_ONE">
+      <point x="-149.00016283705537" y="55.999633913501384" />
+      <point x="-660.0" y="3427.505" />
+      <point x="-660.0" y="730.0" />
+      <point x="181.747" y="730.0" />
+      <point x="-131.00016283705537" y="82.50037797959544" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.OrderController" target="com.kbe.web_shop.service.OrderService" relationship="TO_ONE">
+      <point x="217.4996014135104" y="99.9995059465482" />
+      <point x="74.0" y="1781.079" />
+      <point x="74.0" y="1773.079" />
+      <point x="-158.00016283705537" y="14.999505946548197" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.UserService" target="com.kbe.web_shop.model.User" relationship="CREATE">
+      <point x="149.0" y="59.999633913501384" />
+      <point x="1008.478" y="3431.505" />
+      <point x="1008.478" y="4093.647323430848" />
+      <point x="-1798.598" y="4093.647323430848" />
+      <point x="-1798.598" y="3492.5053660864987" />
+      <point x="-99.0" y="0.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.WishListController" target="com.kbe.web_shop.producer.WishListProducer" relationship="TO_ONE">
+      <point x="202.5" y="14.999676569152143" />
+      <point x="-144.0" y="3.999676569152143" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.CategoryController" target="com.kbe.web_shop.producer.CategoryProducer" relationship="TO_ONE">
+      <point x="210.5" y="-14.999536709102586" />
+      <point x="-122.5" y="-36.999536709102586" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.CartService" target="com.kbe.web_shop.repository.CartRepo" relationship="TO_ONE">
+      <point x="115.0" y="-55.5" />
+      <point x="-173.0" y="0.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.consumer.WishListConsumer" target="com.kbe.web_shop.service.WishListService" relationship="TO_ONE">
+      <point x="-2.0493247100716872E-4" y="-71.50032343084786" />
+      <point x="-85.275" y="3735.0" />
+      <point x="312.747" y="3735.0" />
+      <point x="-1.628370553703462E-4" y="-71.50032343084786" />
+    </edge>
+    <edge source="com.kbe.web_shop.model.Address" target="com.kbe.web_shop.model.User" relationship="TO_ONE">
+      <point x="-1.438363010493049E-4" y="390.5003353239446" />
+      <point x="-1289.598" y="439.0" />
+      <point x="-1448.598" y="439.0" />
+      <point x="-1448.598" y="615.654" />
+      <point x="-1738.598" y="615.654" />
+      <point x="-1738.598" y="1200.938" />
+      <point x="-1142.0" y="1200.938" />
+      <point x="-1142.0" y="3492.505" />
+      <point x="98.99985616369895" y="-3.66086498615914E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.OrderService" target="com.kbe.web_shop.model.OrderItem" relationship="CREATE">
+      <point x="-158.0" y="161.9995059465482" />
+      <point x="-1009.5116014135101" y="1920.079" />
+      <point x="-1009.5116014135101" y="2435.2214513978006" />
+      <point x="95.5" y="0.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.UserController" target="com.kbe.web_shop.service.UserService" relationship="TO_ONE">
+      <point x="-3.985864898368163E-4" y="-93.50036608649862" />
+      <point x="-903.012" y="3249.505" />
+      <point x="94.0" y="3249.505" />
+      <point x="94.0" y="3401.505" />
+      <point x="-149.00016283705537" y="29.999633913501384" />
+    </edge>
+    <edge source="com.kbe.web_shop.model.Order" target="com.kbe.web_shop.model.OrderItem" relationship="TO_MANY">
+      <point x="14.99985616369895" y="313.4999999999998" />
+      <point x="14.99985616369895" y="-192.5" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.ProductService" target="com.kbe.web_shop.exception.ProductNotExistsException" relationship="CREATE">
+      <point x="128.0" y="93.5" />
+      <point x="440.7471628370554" y="2868.3634087421497" />
+      <point x="110.5" y="0.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.AddressService" target="com.kbe.web_shop.repository.AddressRepo" relationship="TO_ONE">
+      <point x="-1.628370553703462E-4" y="-60.49966467605526" />
+      <point x="312.747" y="-384.0" />
+      <point x="735.333" y="-384.0" />
+      <point x="-4.175872439873274E-4" y="-26.99966467605526" />
+    </edge>
+    <edge source="com.kbe.web_shop.model.OrderItem" target="com.kbe.web_shop.model.Order" relationship="TO_ONE">
+      <point x="-15.00014383630105" y="-192.5" />
+      <point x="-15.00014383630105" y="313.4999999999998" />
+    </edge>
+    <edge source="com.kbe.web_shop.model.AuthenticationToken" target="com.kbe.web_shop.model.User" relationship="TO_ONE">
+      <point x="-1.438363010493049E-4" y="-159.49962202040456" />
+      <point x="-1289.598" y="439.0" />
+      <point x="-1448.598" y="439.0" />
+      <point x="-1448.598" y="615.654" />
+      <point x="-1738.598" y="615.654" />
+      <point x="-1738.598" y="1200.938" />
+      <point x="-1142.0" y="1200.938" />
+      <point x="-1142.0" y="3492.505" />
+      <point x="98.99985616369895" y="-3.66086498615914E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.UserController" target="com.kbe.web_shop.producer.UserProducer" relationship="TO_ONE">
+      <point x="139.0" y="-22.0" />
+      <point x="-136.5" y="0.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.UserService" target="com.kbe.web_shop.producer.AddressProducer" relationship="TO_ONE">
+      <point x="148.99983716294463" y="-3.66086498615914E-4" />
+      <point x="948.478" y="3371.505" />
+      <point x="948.478" y="25.5" />
+      <point x="-663.0" y="25.5" />
+      <point x="-663.0" y="-290.488" />
+      <point x="-157.9996533366782" y="3.3532394468238635E-4" />
+    </edge>
+    <edge source="com.kbe.web_shop.consumer.OrderConsumer" target="com.kbe.web_shop.service.OrderService" relationship="TO_ONE">
+      <point x="138.0000919131332" y="-4.940534518027562E-4" />
+      <point x="74.0" y="1637.079" />
+      <point x="74.0" y="1773.079" />
+      <point x="-158.00016283705537" y="14.999505946548197" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.AddressService" target="com.kbe.web_shop.model.Address" relationship="CREATE">
+      <point x="14.99983716294463" y="-60.5" />
+      <point x="327.747" y="-399.0" />
+      <point x="-1289.597856163699" y="-399.0" />
+      <point x="0.0" y="-390.5" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.UserService" target="com.kbe.web_shop.service.AddressService" relationship="TO_ONE">
+      <point x="-149.00016283705537" y="-3.66086498615914E-4" />
+      <point x="134.0" y="3371.505" />
+      <point x="134.0" y="440.654" />
+      <point x="312.747" y="440.654" />
+      <point x="-1.628370553703462E-4" y="60.50033532394474" />
+    </edge>
+    <edge source="com.kbe.web_shop.consumer.CartConsumer" target="com.kbe.web_shop.service.CartService" relationship="TO_ONE">
+      <point x="154.5000919131332" y="4.2063524642799166E-4" />
+      <point x="92.0" y="887.796" />
+      <point x="92.0" y="885.594" />
+      <point x="-115.00016283705537" y="-15.00014780001709" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.OrderController" target="com.kbe.web_shop.service.AuthenticationService" relationship="TO_ONE">
+      <point x="217.4996014135104" y="-4.940534518027562E-4" />
+      <point x="-660.0" y="1681.079" />
+      <point x="-660.0" y="730.0" />
+      <point x="181.747" y="730.0" />
+      <point x="-131.00016283705537" y="82.50037797959544" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.AuthenticationService" target="com.kbe.web_shop.repository.TokenRepo" relationship="TO_ONE">
+      <point x="159.5" y="-44.5" />
+      <point x="-133.5" y="0.0" />
+    </edge>
+    <edge source="com.kbe.web_shop.consumer.UserConsumer" target="com.kbe.web_shop.service.UserService" relationship="TO_ONE">
+      <point x="133.999795067529" y="-3.66086498615914E-4" />
+      <point x="94.0" y="3316.505" />
+      <point x="94.0" y="3401.505" />
+      <point x="-149.00016283705537" y="29.999633913501384" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.AuthenticationService" target="com.kbe.web_shop.exception.AuthenticationFailException" relationship="CREATE">
+      <point x="148.75283716294462" y="82.50037797959544" />
+      <point x="461.5" y="721.0" />
+      <point x="442.0" y="721.0" />
+      <point x="442.0" y="646.5" />
+      <point x="113.49983716294463" y="8.846377979595445" />
+    </edge>
+    <edge source="com.kbe.web_shop.service.ProductService" target="com.kbe.web_shop.model.Product" relationship="CREATE">
+      <point x="-128.0" y="93.5" />
+      <point x="184.74716283705538" y="2962.363" />
+      <point x="98.5" y="14.99959125785017" />
+    </edge>
+    <edge source="com.kbe.web_shop.controller.ProductController" target="com.kbe.web_shop.service.AuthenticationService" relationship="TO_ONE">
+      <point x="203.99960141351016" y="-4.087421498297772E-4" />
+      <point x="-660.0" y="2771.363" />
+      <point x="-660.0" y="730.0" />
+      <point x="181.747" y="730.0" />
+      <point x="-131.00016283705537" y="82.50037797959544" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.4628802197586963" showDependencies="true" x="-742.9112674380165" y="3848.0211623140494" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

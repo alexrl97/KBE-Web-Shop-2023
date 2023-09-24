@@ -29,8 +29,6 @@ export default {
   },
   methods: {
     async fetchData() {
-      // api call to get all the categories
-      this.resetCartCount();
       await axios
         .get(this.baseURL + 'category/list/')
         .then((res) => {

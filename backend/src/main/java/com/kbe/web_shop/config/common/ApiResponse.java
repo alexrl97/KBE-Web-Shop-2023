@@ -1,4 +1,4 @@
-package com.kbe.web_shop.common;
+package com.kbe.web_shop.config.common;
 
 import java.time.LocalDateTime;
 

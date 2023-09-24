@@ -1,6 +1,6 @@
 package com.kbe.web_shop.controller;
 
-import com.kbe.web_shop.common.ApiResponse;
+import com.kbe.web_shop.config.common.ApiResponse;
 import com.kbe.web_shop.model.Address;
 import com.kbe.web_shop.model.User;
 import com.kbe.web_shop.producer.AddressProducer;

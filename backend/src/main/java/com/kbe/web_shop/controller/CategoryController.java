@@ -5,7 +5,7 @@ import com.kbe.web_shop.producer.CategoryProducer;
 import com.kbe.web_shop.service.AuthenticationService;
 import com.kbe.web_shop.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.kbe.web_shop.common.ApiResponse;
+import com.kbe.web_shop.config.common.ApiResponse;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

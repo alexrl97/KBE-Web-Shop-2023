@@ -1,6 +1,6 @@
 package com.kbe.web_shop.integration.controller;
 
-import com.kbe.web_shop.common.ApiResponse;
+import com.kbe.web_shop.config.common.ApiResponse;
 import com.kbe.web_shop.config.constants.Role;
 import com.kbe.web_shop.controller.CategoryController;
 import com.kbe.web_shop.model.AuthenticationToken;

@@ -27,6 +27,7 @@ export default {
               icon: "success",
               confirmButtonText: "Okay",
             }).then(() => {
+                this.$emit("fetchData");
                 this.$router.push({ name: "OrderHistory" });
             });
           })

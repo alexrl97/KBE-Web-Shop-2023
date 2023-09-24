@@ -1,6 +1,6 @@
 package com.kbe.web_shop.integration.controller;
 
-import com.kbe.web_shop.common.ApiResponse;
+import com.kbe.web_shop.config.common.ApiResponse;
 import com.kbe.web_shop.controller.WishListController;
 import com.kbe.web_shop.model.*;
 import com.kbe.web_shop.repository.CategoryRepo;
@@ -8,7 +8,6 @@ import com.kbe.web_shop.repository.ProductRepo;
 import com.kbe.web_shop.repository.UserRepo;
 import com.kbe.web_shop.repository.WishListRepo;
 import com.kbe.web_shop.service.AuthenticationService;
-import com.kbe.web_shop.service.WishListService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

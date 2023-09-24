@@ -1,10 +1,8 @@
 package com.kbe.web_shop.unit.controller;
-import com.kbe.web_shop.common.ApiResponse;
+import com.kbe.web_shop.config.common.ApiResponse;
 import com.kbe.web_shop.controller.OrderController;
-import com.kbe.web_shop.dto.checkout.CheckoutItemDto;
 import com.kbe.web_shop.dto.order.OrderCreateDto;
 import com.kbe.web_shop.exception.AuthenticationFailException;
-import com.kbe.web_shop.exception.OrderNotFoundException;
 import com.kbe.web_shop.model.Order;
 import com.kbe.web_shop.model.User;
 import com.kbe.web_shop.producer.OrderProducer;

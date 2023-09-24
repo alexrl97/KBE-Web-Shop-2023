@@ -54,8 +54,8 @@
             icon: "success",
           }).then(() => {
             this.$router.replace("/");
-            this.$emit("fetchData");
             this.$router.push({ name: "Home" });
+            this.$emit("fetchData");
           });
         } catch (err) {
           swal({

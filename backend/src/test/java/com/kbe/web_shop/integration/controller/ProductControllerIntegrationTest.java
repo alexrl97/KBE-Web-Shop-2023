@@ -1,6 +1,6 @@
 package com.kbe.web_shop.integration.controller;
 
-import com.kbe.web_shop.common.ApiResponse;
+import com.kbe.web_shop.config.common.ApiResponse;
 import com.kbe.web_shop.config.constants.Role;
 import com.kbe.web_shop.controller.CategoryController;
 import com.kbe.web_shop.controller.ProductController;
@@ -15,7 +15,6 @@ import com.kbe.web_shop.repository.UserRepo;
 import com.kbe.web_shop.service.AuthenticationService;
 import com.kbe.web_shop.service.CategoryService;
 import com.kbe.web_shop.service.ProductService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

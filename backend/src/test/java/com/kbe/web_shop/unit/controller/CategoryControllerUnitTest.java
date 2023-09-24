@@ -1,5 +1,5 @@
 package com.kbe.web_shop.unit.controller;
-import com.kbe.web_shop.common.ApiResponse;
+import com.kbe.web_shop.config.common.ApiResponse;
 import com.kbe.web_shop.controller.CategoryController;
 import com.kbe.web_shop.model.Category;
 import com.kbe.web_shop.producer.CategoryProducer;

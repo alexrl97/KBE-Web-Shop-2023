@@ -32,23 +32,15 @@ public class ProductConsumer {
     }
 
     @RabbitListener(queues = {"${product_update_queue}"})
-    public void consumeUpdateMessage(String message) {
+    public void consumeUpdateMessage(String message) throws Exception {
         LOGGER.info(String.format("Received update message for product -> %s", message));
         ProductDto productDto = ProductDto.fromJsonString(message);
-        try {
-            productService.updateProduct(productDto, productDto.getId());
-        } catch (Exception e) {
-            LOGGER.error("Error while processing update message:", e);
-        }
+        productService.updateProduct(productDto, productDto.getId());
     }
 
     @RabbitListener(queues = {"${product_delete_queue}"})
-    public void consumeDeleteMessage(String message) {
+    public void consumeDeleteMessage(String message) throws Exception {
         LOGGER.info(String.format("Received delete message for product -> %s", message));
-        try {
-            productService.deleteProduct(Integer.parseInt(message));
-        } catch (Exception e) {
-            LOGGER.error("Error while processing delete message:", e);
-        }
+        productService.deleteProduct(Integer.parseInt(message));
     }
 }

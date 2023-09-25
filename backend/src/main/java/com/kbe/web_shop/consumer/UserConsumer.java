@@ -21,11 +21,6 @@ public class UserConsumer {
     public void consumeCreateUserMessage(String message) {
         LOGGER.info("Received create user message -> {}", message);
         SignUpDto signUpDto = SignUpDto.fromJsonString(message);
-
-        try {
-            userService.signUp(signUpDto);
-        } catch (Exception e) {
-            LOGGER.error("Error while processing create user message:", e);
-        }
+        userService.signUp(signUpDto);
     }
 }

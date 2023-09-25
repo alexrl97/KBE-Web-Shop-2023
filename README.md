@@ -66,10 +66,6 @@ Add the categories first since a category is mandatory to add a product.
 #### Frontend: http://localhost:8081/
 ###
 ###
-### Tests
-#### Integration and unit tests are located in the backend/src/test folder. The tests run on another db and fill the db with test data while running the tests. RabbitMQ needs to be run for all integration tests to pass.
-###
-###
 ### Required
 #####
 ##### - Docker

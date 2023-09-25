@@ -1,17 +1,15 @@
 <template>
-  <div class="div_class" style="margin-top: 100px">
-    <h3 class="header">Du wirst zum Stripe Bezahlsystem weitergeleitet</h3>
-    <div class="alert alert-primary" style="margin-top: 20px">
-      Das Bezahlsystem befindet sich im Testmodus. Verwende 4242 4242 4242 4242 als Kreditkartennummer
-      und beliebige Angaben für eine erfolgreiche Zahlung.
-    </div>
-
-    <div class="button-container">
+    <div class="div_class">
+      <h3>Du wirst zum Stripe Bezahlsystem weitergeleitet</h3>
+      <div class="alert alert-primary">
+        Das Bezahlsystem befindet sich im Testmodus. Verwende 4242 4242 4242 4242 als Kreditkartennummer
+        und beliebige Angaben für eine erfolgreiche Zahlung.
+      </div>
+  
       <button class="btn btn-primary" @click="goToCheckout">Bezahlen</button>
     </div>
-  </div>
-</template>
-
+  </template>
+  
   <script>
   import axios from 'axios';
   export default {
@@ -86,23 +84,16 @@
     },
   };
   </script>
-<style scoped>
-.div_class {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.header {
-  width: 100%;
-}
-
-.alert {
-  width: 70%;
-}
-
-.button-container {
-  margin-top: 20px;
-}
-</style>
+  <style scoped>
+  .alert {
+    width: 50%;
+  }
+  .div_class {
+    margin-top: 5%;
+    margin-left: 30%;
+  }
+  .checkout_button {
+    background-color: #5d3dec;
+    margin: 10px;
+  }
+  </style>

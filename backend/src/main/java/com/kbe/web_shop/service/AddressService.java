@@ -29,8 +29,9 @@ public class AddressService {
     }
 
     public void createUpdateAddress(Address address){
-        if(!Helper.notNull(address.getId()))
-            address.setId(new Address().getId());
+        Address updatedAddress = new Address();
+        address.setId(updatedAddress.getId());
+        address.setCreatedDate(updatedAddress.getCreatedDate());
         addressRepository.save(address);
     }
 

@@ -4,6 +4,7 @@ import com.kbe.web_shop.dto.product.ProductDto;
 import com.kbe.web_shop.exception.ProductNotExistsException;
 import com.kbe.web_shop.model.Category;
 import com.kbe.web_shop.model.Product;
+import com.kbe.web_shop.repository.CategoryRepo;
 import com.kbe.web_shop.repository.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,9 @@ import java.util.Optional;
 public class ProductService {
     @Autowired
     ProductRepo productRepository;
+
+    @Autowired
+    CategoryRepo categoryRepo;
 
     public void createProduct(ProductDto productDto, Category category) {
         Product product = new Product();
@@ -54,7 +58,6 @@ public class ProductService {
 
     public void updateProduct(ProductDto productDto, Integer productId) throws Exception {
         Optional<Product> optionalProduct = productRepository.findById(productId);
-        // throw an exception if product does not exists
         if (optionalProduct.isEmpty()) {
             throw new Exception("product not present");
         }
@@ -65,13 +68,17 @@ public class ProductService {
         product.setPrice(productDto.getPrice());
         product.setDeckCardId(productDto.getDeckCardId());
         product.setRarity(productDto.getRarity());
+        Optional<Category> optionalCategory = categoryRepo.findById(productDto.getCategoryId());
+        if (optionalCategory.isEmpty()) {
+            throw new Exception("category not present");
+        }
+        product.setCategory(categoryRepo.findById(productDto.getCategoryId()).get());
         productRepository.save(product);
     }
 
     public void deleteProduct(Integer productId) throws Exception {
 
         Optional<Product> optionalProduct = productRepository.findById(productId);
-        // throw an exception if product does not exists
         if (optionalProduct.isEmpty()) {
             throw new Exception("product not present");
         }

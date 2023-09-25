@@ -3,6 +3,7 @@ import com.kbe.web_shop.dto.product.ProductDto;
 import com.kbe.web_shop.exception.ProductNotExistsException;
 import com.kbe.web_shop.model.Category;
 import com.kbe.web_shop.model.Product;
+import com.kbe.web_shop.repository.CategoryRepo;
 import com.kbe.web_shop.repository.ProductRepo;
 import com.kbe.web_shop.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +24,9 @@ public class ProductServiceUnitTest {
 
     @Mock
     private ProductRepo productRepository;
+
+    @Mock
+    private CategoryRepo categoryRepo;
 
     @BeforeEach
     public void setUp() {
@@ -108,15 +112,19 @@ public class ProductServiceUnitTest {
         productDto.setImageURL("updated.jpg");
         productDto.setPrice(20.0);
         productDto.setDescription("Updated Description");
+        productDto.setCategoryId(1);
 
-        Integer productId = 1;
+        Integer id = 1;
 
         Product product = new Product();
-        product.setId(productId);
+        product.setId(id);
+        Category category = new Category();
+        category.setId(id);
 
-        when(productRepository.findById(productId)).thenReturn(Optional.of(product));
+        when(productRepository.findById(id)).thenReturn(Optional.of(product));
+        when(categoryRepo.findById(id)).thenReturn(Optional.of(category));
 
-        assertDoesNotThrow(() -> productService.updateProduct(productDto, productId));
+        assertDoesNotThrow(() -> productService.updateProduct(productDto, id));
     }
 
     @Test

@@ -1,6 +1,7 @@
 package com.kbe.web_shop.consumer;
 
 import com.kbe.web_shop.model.Address;
+import com.kbe.web_shop.service.AddressService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

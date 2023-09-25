@@ -12,6 +12,7 @@ import com.kbe.web_shop.model.User;
 import com.kbe.web_shop.producer.AddressProducer;
 import com.kbe.web_shop.producer.AuthenticationProducer;
 import com.kbe.web_shop.repository.UserRepo;
+import com.kbe.web_shop.service.AddressService;
 import com.kbe.web_shop.service.AuthenticationService;
 import com.kbe.web_shop.service.UserService;
 import org.junit.jupiter.api.BeforeEach;

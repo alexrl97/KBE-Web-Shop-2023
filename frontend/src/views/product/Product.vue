@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center" style="margin-top: 10px;">
-                <h4> Karten</h4>
+                <h3> Karten</h3>
                 <router-link :to="{name: 'AddProduct'}">
                     <button v-if="role === 'storehouse'" class="btn" style="background-color: #aeffae; margin-top: 30px; margin-bottom: 30px;">
                         Karte hinzufügen

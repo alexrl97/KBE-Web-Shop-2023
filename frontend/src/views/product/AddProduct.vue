@@ -10,7 +10,7 @@
             <div class="col-6">
                 <form>
                     <div class="form-group">
-                        <label>Category</label>
+                        <label>Kartentyp</label>
                         <select class="form-control" v-model="categoryId" required>
                             <option v-for="category in categories" :key="category.id"
                                     :value="category.id">{{ category.categoryName }}</option>
@@ -21,18 +21,18 @@
                         <input type="text" v-model="name" class="form-control" >
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
+                        <label>Beschreibung</label>
                         <input type="text" v-model="description" class="form-control" >
                     </div>
                     <div class="form-group">
-                        <label>Image Url</label>
+                        <label>Bild URL</label>
                         <input type="text"  v-model="imageURL" class="form-control" >
                     </div>
                     <div class="form-group">
-                        <label>Price</label>
-                        <input type="number" v-model="price" class="form-control" >
+                        <label>Preis</label>
+                        <input type="number" lang="en" step=".01"  v-model="price" class="form-control" >
                     </div>
-                    <button type="button" class="btn btn-primary" @click="addProduct">Add Product</button>
+                    <button type="button" class="btn btn-primary" @click="addProduct">Produkt hinzufügen</button>
                 </form>
             </div>
             <div class="col-3"></div>

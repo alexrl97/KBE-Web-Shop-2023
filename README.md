@@ -2,7 +2,7 @@
 
 ## Preview
 
-![](https://s11.gifyu.com/images/S4hs7.gif)
+![screen-capture (4) (2)-min (1)](https://github.com/alexrl97/KBE-Web-Shop-2023/assets/72817183/ea6b40a2-4e55-4135-a96b-9d75843045a6)
 
 ## Project setup
 

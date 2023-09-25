@@ -3,7 +3,6 @@ package com.kbe.web_shop.unit.service;
 import com.kbe.web_shop.dto.user.SignUpDto;
 import com.kbe.web_shop.model.Address;
 import com.kbe.web_shop.model.User;
-import com.kbe.web_shop.service.AddressService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

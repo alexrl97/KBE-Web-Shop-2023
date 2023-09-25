@@ -2,14 +2,12 @@ package com.kbe.web_shop.integration.service;
 
 import com.kbe.web_shop.dto.cart.CartDto;
 import com.kbe.web_shop.dto.checkout.CheckoutItemDto;
-import com.kbe.web_shop.exception.CustomException;
 import com.kbe.web_shop.exception.OrderNotFoundException;
 import com.kbe.web_shop.model.*;
 import com.kbe.web_shop.repository.CategoryRepo;
 import com.kbe.web_shop.repository.OrderItemsRepo;
 import com.kbe.web_shop.repository.ProductRepo;
 import com.kbe.web_shop.repository.UserRepo;
-import com.kbe.web_shop.service.AddressService;
 import com.kbe.web_shop.service.CartService;
 import com.kbe.web_shop.service.OrderService;
 import com.stripe.exception.StripeException;
@@ -18,13 +16,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.jaxb.SpringDataJaxb;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 

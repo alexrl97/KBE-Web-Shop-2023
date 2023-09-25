@@ -1,7 +1,6 @@
 package com.kbe.web_shop.consumer;
 
 import com.kbe.web_shop.model.Address;
-import com.kbe.web_shop.service.AddressService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -20,6 +19,10 @@ public class AddressConsumer {
     public void consumeCreateAddressMessage(String message){
         LOGGER.info(String.format("Received create/update message for address -> %s", message));
         Address address = Address.fromJsonString(message);
-        addressService.createUpdateAddress(address);
+        try {
+            addressService.createUpdateAddress(address);
+        } catch (Exception e) {
+            LOGGER.error("Error while processing create/update address message:", e);
+        }
     }
 }

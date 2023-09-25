@@ -1,22 +1,16 @@
 package com.kbe.web_shop.integration.controller;
 
-import com.kbe.web_shop.config.constants.Role;
 import com.kbe.web_shop.controller.AddressController;
-import com.kbe.web_shop.dto.user.SignUpDto;
 import com.kbe.web_shop.model.Address;
 import com.kbe.web_shop.model.AuthenticationToken;
 import com.kbe.web_shop.model.User;
 import com.kbe.web_shop.repository.AddressRepo;
 import com.kbe.web_shop.repository.UserRepo;
-import com.kbe.web_shop.service.AddressService;
 import com.kbe.web_shop.service.AuthenticationService;
-import com.kbe.web_shop.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

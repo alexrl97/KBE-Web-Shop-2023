@@ -21,13 +21,23 @@ public class OrderConsumer {
     public void consumeCreateOrderMessage(String message) {
         LOGGER.info("Received create order message -> {}", message);
         OrderCreateDto orderCreateDto = OrderCreateDto.fromJsonString(message);
-        orderService.createOrder(orderCreateDto.getUser(), orderCreateDto.getSessionId());
+
+        try {
+            orderService.createOrder(orderCreateDto.getUser(), orderCreateDto.getSessionId());
+        } catch (Exception e) {
+            LOGGER.error("Error while processing create order message:", e);
+        }
     }
 
     @RabbitListener(queues = {"${order_send_queue}"})
     public void consumeSendOrderMessage(String message) {
         LOGGER.info("Received send order message -> {}", message);
         OrderSendDto orderSendDto = OrderSendDto.fromJsonString(message);
-        orderService.sendOrder(orderSendDto.getOrderId(), orderSendDto.getTrackingNumber());
+
+        try {
+            orderService.sendOrder(orderSendDto.getOrderId(), orderSendDto.getTrackingNumber());
+        } catch (Exception e) {
+            LOGGER.error("Error while processing send order message:", e);
+        }
     }
 }

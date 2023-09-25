@@ -8,7 +8,6 @@ import com.kbe.web_shop.model.*;
 import com.kbe.web_shop.producer.CartProducer;
 import com.kbe.web_shop.repository.OrderItemsRepo;
 import com.kbe.web_shop.repository.OrderRepo;
-import com.kbe.web_shop.service.AddressService;
 import com.kbe.web_shop.service.CartService;
 import com.kbe.web_shop.service.OrderService;
 import org.junit.Before;

@@ -1,9 +1,7 @@
 package com.kbe.web_shop.integration.service;
 
 import com.kbe.web_shop.model.Address;
-import com.kbe.web_shop.repository.AddressRepo;
 import com.kbe.web_shop.repository.UserRepo;
-import com.kbe.web_shop.service.AddressService;
 import com.kbe.web_shop.model.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -19,6 +19,11 @@ public class AuthenticationConsumer {
     public void consumeCreateAuthenticationTokenMessage(String message) {
         LOGGER.info("Received create authentication token message -> {}", message);
         AuthenticationToken authenticationToken = AuthenticationToken.fromJsonString(message);
-        authenticationService.saveConfirmationToken(authenticationToken);
+
+        try {
+            authenticationService.saveConfirmationToken(authenticationToken);
+        } catch (Exception e) {
+            LOGGER.error("Error while processing create authentication token message:", e);
+        }
     }
 }

@@ -4,6 +4,9 @@
 
 ![screen-capture (4) (2)-min (1)](https://github.com/alexrl97/KBE-Web-Shop-2023/assets/72817183/ea6b40a2-4e55-4135-a96b-9d75843045a6)
 
+### Note: Added Search Bar Feature after recording
+<img width="430" alt="Screenshot_1" src="https://github.com/alexrl97/KBE-Web-Shop-2023/assets/72817183/7c6aa5cf-a1ac-4ef5-b621-445fafca96e7">
+
 ## Project setup
 
 To run the web shop first the backend and then the frontend needs to be started. 

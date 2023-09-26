@@ -18,7 +18,7 @@
             <router-link v-bind:to="'/order/'+order.id">Bestellung #{{order.id}}</router-link>
           </h6>
           <p class="mb-0">{{order.totalItems}} Karte<span v-if="order.totalItems > 1">n</span></p>
-          <p id="item-price" class="mb-0 font-weight-bold">Gesamtpreis: {{order.totalCost}}€</p>
+          <p id="item-price" class="mb-0 font-weight-bold">Gesamtpreis: {{order.totalCost.toFixed(2)}}€</p>
           <p id="item-total-price">Bestelldatum: {{order.orderdate}}</p>
           <p id="item-total-price">Status:
             <span v-if="order.status === 'send'">Versendet</span>

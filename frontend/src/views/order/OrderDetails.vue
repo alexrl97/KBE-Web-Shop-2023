@@ -32,7 +32,7 @@
 
     <!--        Display the total price-->
     <div class="total-cost pt-2 text-right">
-      <h5>Gesamtpreis: {{order.totalPrice}}€</h5>
+      <h5>Gesamtpreis: {{(totalPrice)}}€</h5>
     </div>
   </div>
 </template>
@@ -48,7 +48,8 @@ export default {
       orderItems:[],
       order: {},
       token: null,
-      orderID: 0
+      orderID: 0,
+      totalPrice: 0,
     }
   },
 
@@ -60,6 +61,7 @@ export default {
             if(response.status === 200) {
               this.order = response.data
               this.orderItems = this.order.orderItems
+              this.totalPrice = this.order.totalPrice.toFixed(2)
             }
           },
           (err)=>{

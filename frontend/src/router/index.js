@@ -7,6 +7,7 @@ import AddProduct from '../views/product/AddProduct';
 import EditCategory from '../views/category/EditCategory';
 import EditProduct from '../views/product/EditProduct';
 import ShowDetails from '../views/product/ShowDetails';
+import SearchProduct from "@/views/product/SearchProduct";
 import ListProducts from '../views/category/ListProducts';
 import WishList from '../views/product/WishList';
 import SignUp from '../views/user/SignUp';
@@ -69,7 +70,11 @@ const routes = [
     name: 'ShowDetails',
     component: ShowDetails,
   },
-
+  {
+    path: '/product/search/:name/:categoryId',
+    name: 'SearchProduct',
+    component: SearchProduct,
+  },
   {
     path: '/signUp',
     name: 'SignUp',

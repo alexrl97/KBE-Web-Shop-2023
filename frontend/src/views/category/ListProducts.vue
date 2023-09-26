@@ -40,7 +40,6 @@
             } else {
                 this.msg = this.product.length + " Produkte gefunden"
             }
-
         }
     }
 </script>

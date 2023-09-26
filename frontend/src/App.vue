@@ -1,15 +1,22 @@
 <template>
-  <Navbar :key="navBarReloadKey" :cartCount="cartCount" @resetCartCount="resetCartCount" />
-  <router-view
-    v-if="categories && products"
-    style="min-height: 60vh"
-    :baseURL="baseURL"
-    :categories="categories"
-    :products="products"
-    @fetchData="fetchData"
-  >
-  </router-view>
-  <Footer />
+  <div>
+    <Navbar
+        :key="navBarReloadKey"
+        :cartCount="cartCount"
+        :categories="categories"
+    @resetCartCount="resetCartCount"
+    />
+    <router-view
+        v-if="categories && products"
+        style="min-height: 60vh"
+        :baseURL="baseURL"
+        :categories="categories"
+        :products="products"
+        :key="$route.fullPath"
+        @fetchData="fetchData"
+    ></router-view>
+    <Footer />
+  </div>
 </template>
 
 <script>
@@ -35,13 +42,13 @@ export default {
           this.categories = res.data;
         })
         .catch((err) => console.log('err"´', err));
-      // api call to get the products
       await axios
         .get(this.baseURL + 'product/')
         .then((res) => {
           this.products = res.data;
         })
         .catch((err) => console.log('err', err));
+      this.token = localStorage.getItem('token');
       if (this.token) {
         axios
           .get(`${this.baseURL}cart/?token=${this.token}`)

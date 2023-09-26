@@ -1,12 +1,12 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <!-- Navbar content -->
-      <!--    Logo-->
-      <router-link class="navbar-brand" :to="{ name: 'Home' }">
-        <img id="logo" src="../assets/logo.png" />
-      </router-link>
-      <!--    Burger Button-->
-      <button
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navbar content -->
+    <!-- Logo -->
+    <router-link class="navbar-brand" :to="{ name: 'Home' }">
+      <img id="logo" src="../assets/logo.png" alt="Logo" />
+    </router-link>
+    <!-- Burger Button -->
+    <button
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
@@ -14,24 +14,53 @@
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!--
-        <form class="form-inline ml-auto mr-auto">
-          <div class="input-group">
-            <input size="80" type="text" class="form-control" placeholder="Suche Karten" aria-label="Username" aria-describedby="basic-addon1">
-            <div class="input-group-prepend">
-            <span class="input-group-text" id="search-button-navbar">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="form-inline ml-auto" @submit.prevent="searchProduct" style="width: 50%">
+        <div class="input-group">
+          <input
+              size="80"
+              type="text"
+              class="form-control"
+              v-model="searchText"
+              placeholder="Suche Karten"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+          />
+          <select v-model="selectedCategoryId">
+            <option value="0">Alle Kartentypen</option>
+            <option
+                v-for="category in categories"
+                :key="category.id"
+                :value="category.id"
+            >
+              {{ category.categoryName }}
+            </option>
+          </select>
+          <div class="input-group-prepend">
+            <button
+                type="submit"
+                id="search-button-navbar"
+                class="input-group-text"
+            >
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+              >
+                <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                />
               </svg>
-            </span>
-            </div>
+            </button>
           </div>
-        </form>
-        -->
+        </div>
+      </form>
 
         <!-- dropdown for browse -->
         <ul class="navbar-nav ml-auto">
@@ -61,7 +90,7 @@
           </li>
           <div v-if="role !== 'storehouse'">
             <li class="nav-item">
-              <div id="cart" style="position: relative;  margin-left: 35px;"> <!-- Hier habe ich margin-left geändert -->
+              <div id="cart" style="position: relative;  margin-left: 35px;">
                 <span id="nav-cart-count">{{ cartCount }}</span>
                 <router-link class="text-light" :to="{ name: 'Cart' }">
                   <i class="fa fa-shopping-cart" style="font-size: 36px;"></i>
@@ -78,11 +107,13 @@
   import swal from "sweetalert";
   export default {
     name: "Navbar",
-    props: ["cartCount"],
+    props: ["cartCount", "categories"],
     data() {
     return {
       token: null,
-      role:null
+      role:null,
+      searchText: "",
+      selectedCategoryId: 0,
     };
   },
     methods: {
@@ -98,6 +129,16 @@
           this.$emit("resetCartCount");
           this.$router.push({ name: "SignIn" });
         }).catch((err) => console.log("err", err));
+      },
+      searchProduct() {
+        const name = this.searchText;
+        const categoryId = this.selectedCategoryId;
+        if(this.searchText !== "")
+          this.$router.push({ name: "SearchProduct", params: { name, categoryId } });
+        else if(this.selectedCategoryId === 0)
+          this.$router.push({ name: "AdminProduct" });
+        else
+          this.$router.push({ name: "ListProducts", params: { id:categoryId } });
       },
     },
     mounted() {

@@ -16,7 +16,7 @@
       class="row mt-2 pt-3 justify-content-around"
     >
         <div class="col-2"></div>
-        <div class="col-md-3 embed-responsive embed-responsive-16by9">
+        <div class="col-md-3 embed-responsive embed-responsive-16by9" style="width: 50%">
           <img
             :src="cartItem.product.imageURL"
             alt=""

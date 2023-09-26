@@ -60,7 +60,7 @@ export default {
       position: absolute;
       bottom: 5px;
       right: 5px;
-      font-size: 50%;
+      font-size: 65%;
       background-color: #fff;
       padding: 5px 10px;
       border-radius: 5px;

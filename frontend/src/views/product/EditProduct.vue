@@ -31,6 +31,10 @@
                         <input type="text" class="form-control" v-model="product.imageURL" required/>
                     </div>
                     <div class="form-group">
+                      <label>Karten ID</label>
+                      <input type="text" class="form-control" v-model="product.deckCardId" required/>
+                    </div>
+                    <div class="form-group">
                         <label>Preis</label>
                         <input type="number" lang="en" step=".01" class="form-control" v-model="product.price" required/>
                     </div>

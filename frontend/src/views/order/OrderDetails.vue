@@ -24,6 +24,7 @@
           <p id="item-total-price" class="mb-0">
             Preis: <span class="font-weight-bold">{{ orderItem.price * orderItem.quantity}}€</span>
           </p>
+          <p id="item-id" class="mb-0">Karten ID : {{orderItem.product.deckCardId}}</p>
         </div>
       </div>
       <div class="col-1"></div>

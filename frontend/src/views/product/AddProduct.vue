@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center">
-                <h4>Add New Product</h4>
+            <div class="col-12 text-center" style="margin-top: 10px;">
+                <h4>Neue Karte hinzufügen</h4>
             </div>
         </div>
         <div class="row">
@@ -29,6 +29,10 @@
                         <input type="text"  v-model="imageURL" class="form-control" >
                     </div>
                     <div class="form-group">
+                      <label>Karten ID</label>
+                      <input type="text"  v-model="deckCardId" class="form-control" >
+                    </div>
+                    <div class="form-group">
                         <label>Preis</label>
                         <input type="number" lang="en" step=".01"  v-model="price" class="form-control" >
                     </div>
@@ -53,7 +57,8 @@
                 name: null,
                 description: null,
                 imageURL: null,
-                price: null
+                price: null,
+                deckCardId: null,
             }
         },
         methods: {
@@ -63,7 +68,8 @@
                     description: this.description,
                     name: this.name,
                     imageURL: this.imageURL,
-                    price: this.price
+                    price: this.price,
+                    deckCardId: this.deckCardId
                 };
 
                 axios.post(this.baseURL+"product/add?token="+this.token, newProduct)

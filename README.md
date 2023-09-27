@@ -64,13 +64,25 @@ to add sample data for categories and products in the swagger UI.
 Add the categories first since a category is mandatory to add a product.
 
 #
+## Tests
+### Frontend
+The Frontend is tested using Cypress for End 2 End testing. For the tests to fully pass you need a customer and a storehouse user with the credentials storehouse@mail.de and pw storehouse and a customer user with customer@mail.de and pw customer. The tests are located in the "frontend/tests/e2e/specs" folder and can be run using the cypress ui using the following command in the frontend folder. 
+```
+npx cypress open
+```
+![ezgif-4-88ff2dca4d](https://github.com/alexrl97/KBE-Web-Shop-2023/assets/72817183/96c46034-0ba1-4384-b979-13095772083e)
+###
+### Backend
+Integration and unit tests are located in the backend/src/test folder. The tests run on another db and fill the db with test data while running the tests. RabbitMQ needs to be run for all integration tests to pass. Currently there are 99 integration and 44 unit tests.
+###
+## Databases
+There are two databases used. The live database can be run from the docker container and is located on port 3307. The testing backend can be run using the following command in the backend folder which connects to the root database on port 3306. 
+```
+./mvnw spring-boot:run
+```
 ### URL's
 #### Swagger UI: http://localhost:8080/swagger-ui.html
 #### Frontend: http://localhost:8081/
-###
-###
-### Tests
-Integration and unit tests are located in the backend/src/test folder. The tests run on another db and fill the db with test data while running the tests. RabbitMQ needs to be run for all integration tests to pass.
 ###
 ###
 ### Required

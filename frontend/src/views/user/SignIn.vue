@@ -13,7 +13,7 @@
               <label>Passwort</label>
               <input v-model="password" type="password" class="form-control" />
             </div>
-            <button class="btn btn-primary mt-2 py-0">Weiter</button>
+            <button id = button class="btn btn-primary mt-2 py-0">Weiter</button>
           </form>
         </div>
       </div>

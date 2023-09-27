@@ -15,14 +15,14 @@
           </div>
           <div class="form-group">
             <label>Beschreibung</label>
-            <textarea type="text" class="form-control" v-model="description" />
+            <input type="text" class="form-control" v-model="description" />
           </div>
           <div class="form-group">
             <label>Bild URL</label>
             <input type="text" class="form-control" v-model="imageUrl" />
           </div>
           <button type="button" class="btn btn-primary" @click="addCategory">
-            Speichern
+            Kartentyp hinzufügen
           </button>
         </form>
       </div>

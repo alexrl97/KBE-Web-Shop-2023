@@ -75,7 +75,7 @@
                 axios.post(this.baseURL+"product/add?token="+this.token, newProduct)
                 .then(() => {
                     swal({
-                        text: "Produkt hinzugeügt",
+                        text: "Produkt hinzugefügt",
                         icon: "success"
                     }).then(() => {
                       this.$emit("fetchData");
